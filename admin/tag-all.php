@@ -3,24 +3,24 @@
 <!-- Header -->
 <?php
 
-if (isset($_POST['add_brand'])) {
-    $add_brand = $_POST['add_brand_name'];
+if (isset($_POST['add_tag'])) {
+    $add_tag = $_POST['add_tag_name'];
 
-    $insert_brand = mysqli_query($conn, "INSERT INTO brand(name) VALUE('$add_brand')");
-    if ($insert_brand) {
-        $msg = "Successfully created a new Brand";
-        header("location:brand-all.php?msg=$msg");
+    $insert_tag = mysqli_query($conn, "INSERT INTO tag(name) VALUE('$add_tag')");
+    if ($insert_tag) {
+        $msg = "Successfully created a new tag";
+        header("location:tag-all.php?msg=$msg");
     }
 }
 
 if (isset($_POST['update'])) {
-     $id = $_POST['brand_id'];
-     $up_brand = $_POST['up_brand']; 
+     $id = $_POST['tag_id'];
+     $up_tag = $_POST['up_tag']; 
 
-    $update_brand = mysqli_query($conn, "UPDATE brand SET name='$up_brand' WHERE id=$id");
-    if ($update_brand) {
-        $msg = "Successfully Updated a new Brand";
-        header("location:brand-all.php?msg=$msg");
+    $update_tag = mysqli_query($conn, "UPDATE tag SET name='$up_tag' WHERE id=$id");
+    if ($update_tag) {
+        $msg = "Successfully Updated a new tag";
+        header("location:tag-all.php?msg=$msg");
     }
 }
 
@@ -34,7 +34,7 @@ if (isset($_POST['update'])) {
 
     <!-- Page Content -->
     <section class="content_wrapper">
-        <h4 class="text-xl font-medium">Brand All</h4>
+        <h4 class="text-xl font-medium">tag All</h4>
         <br>
         <!-- Page Details Title -->
 
@@ -45,8 +45,8 @@ if (isset($_POST['update'])) {
                 <div class="table_content_wrapper">
                     <header class="table_header">
                         <div class="table_header_left">
-                            <button class="add_brand_btn px-4 py-2 text-sm bg-blue-600 text-white rounded focus:ring">Add New
-                                Brand</button>
+                            <button class="add_tag_btn px-4 py-2 text-sm bg-blue-600 text-white rounded focus:ring">Add New
+                                tag</button>
                         </div>
 
                         <form action="" method="POST">
@@ -64,7 +64,7 @@ if (isset($_POST['update'])) {
                                     <div class="table_th_div"><span>Sl.</span></div>
                                 </th>
                                 <th class="table_th">
-                                    <div class="table_th_div"><span>Brand Name</span></div>
+                                    <div class="table_th_div"><span>tag Name</span></div>
                                 </th>
                                 <th class="table_th">
                                     <div class="table_th_div"><span>Action</span></div>
@@ -75,7 +75,7 @@ if (isset($_POST['update'])) {
                             <?php
                             if (isset($_POST['search'])) {
                                 $src_text = trim($_POST['src_text']);
-                                $sql = "SELECT * FROM brand WHERE name = '$src_text'";
+                                $sql = "SELECT * FROM tag WHERE name = '$src_text'";
                                 $search_query = mysqli_query($conn, $sql);
                             }
                             if (isset($search_query)) {
@@ -99,8 +99,8 @@ if (isset($_POST['update'])) {
                                                 </div>
                                             <?php } else { ?>
                                                 <div class="w-full flex_center gap-1">
-                                                    <a data-name="<?php echo $row['name'] ?>" data-id="<?php echo $row['id'] ?>" class="edit_brand_btn btn table_edit_btn">Edit</a>
-                                                    <a class="btn table_edit_btn" href="delete.php?src=brand&&id=<?php echo $row['id'] ?>">Delete</a>
+                                                    <a data-name="<?php echo $row['name'] ?>" data-id="<?php echo $row['id'] ?>" class="edit_tag_btn btn table_edit_btn">Edit</a>
+                                                    <a class="btn table_edit_btn" href="delete.php?src=tag&&id=<?php echo $row['id'] ?>">Delete</a>
                                                 </div>
                                             <?php } ?>
                                         </td>
@@ -115,7 +115,7 @@ if (isset($_POST['update'])) {
                                     $currentPage = 1;
                                 }
                                 $startFrom = ($currentPage * $showRecordPerPage) - $showRecordPerPage;
-                                $totalEmpSQL = "SELECT * FROM brand ORDER BY id DESC";
+                                $totalEmpSQL = "SELECT * FROM tag ORDER BY id DESC";
                                 $allEmpResult = mysqli_query($conn, $totalEmpSQL);
                                 $totalEmployee = mysqli_num_rows($allEmpResult);
                                 $lastPage = ceil($totalEmployee / $showRecordPerPage);
@@ -123,7 +123,7 @@ if (isset($_POST['update'])) {
                                 $nextPage = $currentPage + 1;
                                 $previousPage = $currentPage - 1;
 
-                                $empSQL = "SELECT * FROM brand ORDER BY id DESC LIMIT $startFrom, $showRecordPerPage";
+                                $empSQL = "SELECT * FROM tag ORDER BY id DESC LIMIT $startFrom, $showRecordPerPage";
                                 $query = mysqli_query($conn, $empSQL);
                                 $i = 0;
                                 while ($row = mysqli_fetch_assoc($query)) {
@@ -143,8 +143,8 @@ if (isset($_POST['update'])) {
                                                 </div>
                                             <?php } else { ?>
                                                 <div class="w-full flex_center gap-1">
-                                                    <a style="cursor:pointer" data-name="<?php echo $row['name'] ?>" data-id="<?php echo $row['id'] ?>" class="edit_brand_btn btn table_edit_btn">Edit</a>
-                                                    <a style="cursor:pointer" class="btn table_edit_btn" href="delete.php?src=brand&&id=<?php echo $row['id'] ?>">Delete</a>
+                                                    <a style="cursor:pointer" data-name="<?php echo $row['name'] ?>" data-id="<?php echo $row['id'] ?>" class="edit_tag_btn btn table_edit_btn">Edit</a>
+                                                    <a style="cursor:pointer" class="btn table_edit_btn" href="delete.php?src=tag&&id=<?php echo $row['id'] ?>">Delete</a>
                                                 </div>
                                             <?php } ?>
                                         </td>
@@ -205,42 +205,42 @@ if (isset($_POST['update'])) {
             </div>
             </div>
 
-            <!-- -------------add brand---------------- -->
+            <!-- -------------add tag---------------- -->
             <form action="" method="POST">
-                <div class="add_category_wrapper add_brand" style="display: none;">
+                <div class="add_tag_wrapper add_tag" style="display: none;">
                     <div class="hide_add_new_cat fixed inset-0 w-full h-screen bg-black bg-opacity-50 z-40"></div>
                     <div class="fixed w-[96%] md:w-[500px] inset-0 m-auto bg-white rounded shadow z-50 h-fit">
                         <h1 class="p-4 border-b">
-                            Add Brand
+                            Add tag
                         </h1>
 
                         <div class="p-4 space-y-2">
-                            <label for="cat_name">Brand Name</label>
-                            <input name="add_brand_name" type="text" class="input">
+                            <label for="cat_name">tag Name</label>
+                            <input name="add_tag_name" type="text" class="input">
 
                         </div>
 
                         <div class="p-4 flex items-center justify-end gap-x-3 border-t mt-4">
-                            <button class="btn w-fit p-2 bg-blue-600 text-white rounded focus:ring-2" type="submit" name="add_brand">Create Brand</button>
+                            <button class="btn w-fit p-2 bg-blue-600 text-white rounded focus:ring-2" type="submit" name="add_tag">Create tag</button>
                             <button class="btn w-fit p-2 bg-red-400 text-white rounded focus:ring-2 hide_add_new_cat">Cancel</button>
                         </div>
                     </div>
                 </div>
             </form>
 
-            <!-- -------------Edit brand---------------- -->
+            <!-- -------------Edit tag---------------- -->
             <form action="" method="POST">
-                <div class="add_category_wrapper edit_brand" style="display: none;">
+                <div class="add_tag_wrapper edit_tag" style="display: none;">
                     <div class=" fixed inset-0 w-full h-screen bg-black bg-opacity-50 z-40"></div>
                     <div class="fixed w-[96%] md:w-[500px] inset-0 m-auto bg-white rounded shadow z-50 h-fit">
                         <h1 class="p-4 border-b">
-                            Edit Brand
+                            Edit tag
                         </h1>
 
                         <div class="p-4 space-y-2">
-                            <label for="up_brand">Brand Name</label>
-                            <input name="up_brand" id="brand_name" type="text" class="input">
-                            <input name="brand_id" id="brand_id" type="hidden">
+                            <label for="up_tag">tag Name</label>
+                            <input name="up_tag" id="tag_name" type="text" class="input">
+                            <input name="tag_id" id="tag_id" type="hidden">
 
                         </div>
 
@@ -260,24 +260,24 @@ if (isset($_POST['update'])) {
 </main>
 
 <script>
-    let add_brand_btn = document.querySelector(".add_brand_btn");
-    let add_brand = document.querySelector(".add_brand");
-    let all_edit_brand_btn = document.querySelectorAll(".edit_brand_btn");
-    let edit_brand = document.querySelector(".edit_brand");
+    let add_tag_btn = document.querySelector(".add_tag_btn");
+    let add_tag = document.querySelector(".add_tag");
+    let all_edit_tag_btn = document.querySelectorAll(".edit_tag_btn");
+    let edit_tag = document.querySelector(".edit_tag");
     let hide_add_new_cat = document.querySelectorAll(".hide_add_new_cat");
-    const brand_name_input = document.getElementById("brand_name")
-    const brand_id_input = document.getElementById("brand_id")
+    const tag_name_input = document.getElementById("tag_name")
+    const tag_id_input = document.getElementById("tag_id")
 
-    add_brand_btn.addEventListener("click", () => {
-        add_brand.style.display = "block";
+    add_tag_btn.addEventListener("click", () => {
+        add_tag.style.display = "block";
     });
 
-    all_edit_brand_btn.forEach((btn) => {
+    all_edit_tag_btn.forEach((btn) => {
         btn.addEventListener("click", function() {
-            edit_brand.style.display = "block";
+            edit_tag.style.display = "block";
             console.log(btn?.dataset)
-            brand_name_input.value = this.dataset?.name;
-            brand_id_input.value = this.dataset?.id;
+            tag_name_input.value = this.dataset?.name;
+            tag_id_input.value = this.dataset?.id;
         });
        
     })

@@ -8,15 +8,6 @@
     </button>
   </a>
 
-  <a href="warranty-pos.php">
-    <button class="btn nav_btn">
-      <div class="sidebar_icon">
-        <i class="fa-solid fa-layer-group"></i>
-      </div>
-      <span class="nav_text">Warranty POS</span>
-    </button>
-  </a>
-
   <a href="customer-all.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
@@ -26,55 +17,74 @@
     </button>
   </a>
 
-  <a href="product-all.php">
+  <a href="category-all.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
-        <i class="fa-solid fa-cart-shopping"></i>
+        <i class="fa-brands fa-bandcamp"></i>
       </div>
-      <span class="nav_text">Product</span>
+      <span class="nav_text">Category</span>
+    </button>
+  </a>
+
+  <a href="tag-all.php">
+    <button class="btn nav_btn">
+      <div class="sidebar_icon">
+      <i class="fa-solid fa-tag"></i>
+      </div>
+      <span class="nav_text">Tag</span>
+    </button>
+  </a>
+
+  <a href="category-test.php">
+    <button class="btn nav_btn">
+      <div class="sidebar_icon">
+      <i class="fa-solid fa-comment"></i>
+      </div>
+      <span class="nav_text">Comment</span>
     </button>
   </a>
 
   <a href="brand-all.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
-        <i class="fa-brands fa-bandcamp"></i>
+      <i class="fa-solid fa-ellipsis"></i>
       </div>
-      <span class="nav_text">Brand</span>
+      <span class="nav_text">Menu</span>
     </button>
   </a>
 
-  <a href="category-all.php">
+  <a href="brand-all.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
-        <i class="fa-solid fa-cubes"></i>
+      <i class="fa-solid fa-rectangle-ad"></i>
       </div>
-      <span class="nav_text">Category</span>
+      <span class="nav_text">Ad</span>
     </button>
   </a>
 
   <div class="relative">
-    <button class="btn nav_btn nav_btn_toggler">
+    <button style="padding-left:17px" class="btn nav_btn nav_btn_toggler">
       <div class="sidebar_icon">
         <i class="fa-solid fa-receipt"></i>
       </div>
-      <span class="nav_text">Warranty Status</span>
+      <span class="nav_text">Post Status</span>
       <span class="nav_toggle_icon">+</span>
     </button>
     <div class="hidden hide_nav_items nav_items">
       <a href="pending-status.php">
-        <button class="sub_link">Pending Status</button>
+        <button class="sub_link">Pending</button>
       </a>
       <a href="success-status.php">
-        <button class="sub_link">Success Status</button>
+        <button class="sub_link">Aprove</button>
       </a>
     </div>
   </div>
+  
 
   <?php if ($admin_info['role'] == 'Moderator') { ?>
   <?php } else { ?>
     <div class="relative">
-      <button class="btn nav_btn nav_btn_toggler">
+      <button style="padding-left:17px" class="btn nav_btn nav_btn_toggler">
         <div class="sidebar_icon">
           <i class="fa-solid fa-cog"></i>
         </div>

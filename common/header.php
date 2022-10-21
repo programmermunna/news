@@ -1,4 +1,4 @@
-<?php include("include/functions.php");?>
+<?php include("admin/include/functions.php");?>
 <?php
 
 // if(isset($_SESSION['admin_id'])){

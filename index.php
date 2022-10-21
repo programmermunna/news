@@ -1,8 +1,6 @@
 <!-- Header -->
 <?php include("common/header.php");?>
 <!-- Header -->
-
-
 <?php include("common/slider.php");?>
 
 <!-- Content here -->
@@ -74,7 +72,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <a href=""><img class="img-fluid w-100" src="upload/ad.png" alt=""></a>
+                            <a href=""><img class="img-fluid w-100" src="admin/upload/ad.png" alt=""></a>
                         </div>
                         <div class="col-lg-6">
                             <div class="position-relative mb-3">
@@ -183,7 +181,7 @@
                             </div>
                         </div>
                         <div class="col-lg-12 mb-3">
-                            <a href="./single.php"><img class="img-fluid w-100" src="upload/ad.png" alt="">ad</a>
+                            <a href="./single.php"><img class="img-fluid w-100" src="admin/upload/ad.png" alt="">ad</a>
                         </div>
                         <div class="col-lg-12">
                             <div class="row news-lg mx-0 mb-3">
