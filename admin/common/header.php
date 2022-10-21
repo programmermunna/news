@@ -31,6 +31,11 @@ $invoice = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM invoice_setting 
     <link rel="icon" type="image/x-icon" href="upload/<?php echo $setting['favicon']?>">
     
     <script src="https://kit.fontawesome.com/20877c2550.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js" crossorigin="anonymous"></script>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet" />
     
     <link href="dist/css/category.css" rel="stylesheet" />
     <link href="dist/css/styles.css" rel="stylesheet" />

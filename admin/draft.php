@@ -40,31 +40,22 @@
                                     <div class="table_th_div"><span>Sl.</span></div>
                                 </th>
                                 <th class="table_th">
-                                    <div class="table_th_div"><span>Name</span></div>
+                                    <div class="table_th_div"><span>Thumbnail</span></div>
                                 </th>
                                 <th class="table_th">
-                                    <div class="table_th_div"><span>Phone</span></div>
+                                    <div class="table_th_div"><span>Title</span></div>
                                 </th>
                                 <th class="table_th">
-                                    <div class="table_th_div"><span>Email</span></div>
+                                    <div class="table_th_div"><span>Category</span></div>
                                 </th>
                                 <th class="table_th">
-                                    <div class="table_th_div"><span>Product Name</span></div>
+                                    <div class="table_th_div"><span>Author</span></div>
                                 </th>
                                 <th class="table_th">
-                                    <div class="table_th_div"><span>Receive Date</span></div>
+                                    <div class="table_th_div"><span>Status</span></div>
                                 </th>
                                 <th class="table_th">
-                                    <div class="table_th_div"><span>Delivery Date</span></div>
-                                </th>
-                                <th class="table_th">
-                                    <div class="table_th_div"><span>Warranty Fee</span></div>
-                                </th>
-                                <th class="table_th">
-                                    <div class="table_th_div"><span>Delivery Fee</span></div>
-                                </th>
-                                <th class="table_th">
-                                    <div class="table_th_div"><span>status</span></div>
+                                    <div class="table_th_div"><span>Date</span></div>
                                 </th>
                                 <th class="table_th">
                                     <div class="table_th_div"><span>Action</span></div>
@@ -147,7 +138,7 @@
                                     $currentPage = 1;
                                 }
                                 $startFrom = ($currentPage * $showRecordPerPage) - $showRecordPerPage;
-                                $totalEmpSQL = "SELECT * FROM orders WHERE status !='Success' ORDER BY id DESC";
+                                $totalEmpSQL = "SELECT * FROM post WHERE status ='Draft' ORDER BY id DESC";
                                 $allEmpResult = mysqli_query($conn, $totalEmpSQL);
                                 $totalEmployee = mysqli_num_rows($allEmpResult);
                                 $lastPage = ceil($totalEmployee / $showRecordPerPage);
@@ -155,7 +146,7 @@
                                 $nextPage = $currentPage + 1;
                                 $previousPage = $currentPage - 1;
 
-                                $empSQL = "SELECT * FROM orders WHERE status !='Success' ORDER BY id DESC LIMIT $startFrom, $showRecordPerPage";
+                                $empSQL = "SELECT * FROM post WHERE status ='Draft' ORDER BY id DESC LIMIT $startFrom, $showRecordPerPage";
                                 $query = mysqli_query($conn, $empSQL);
                                 $i = 0;
                                 while ($row = mysqli_fetch_assoc($query)) {
@@ -167,31 +158,22 @@
                                             <div class="text-center"><?php echo $i ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['name'] ?></div>
+                                            <div class="text-center"><?php echo $row['img'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['phone'] ?></div>
+                                            <div class="text-center"><?php echo $row['title'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['email'] ?></div>
+                                            <div class="text-center"><?php echo $row['category'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['product_name'] ?></div>
-                                        </td>
-                                        <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['receive_date'] ?></div>
-                                        </td>
-                                        <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['delivery_date'] ?></div>
-                                        </td>
-                                        <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['warranty_fee'] ?></div>
-                                        </td>
-                                        <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['delivery_fee'] ?></div>
+                                            <div class="text-center"><?php echo $row['author'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['status'] ?></div>
+                                        </td>
+                                        <td class="p-3 border whitespace-nowrap">
+                                            <div class="text-center"><?php $date = $row['time'];  echo date('d-m-Y', $date); ?></div>
                                         </td>
 
                                         <td class="p-3 border whitespace-nowrap">
@@ -207,7 +189,7 @@
                                                     <a class="btn table_edit_btn send_btn" href="send-mail.php?option=<?php echo $row['status'] ?>&&id=<?php echo $row['warranty_id'] ?>">Send</a>                                               
                                                     <a class="btn table_edit_btn" href="warranty-pos.php?status=pending&&id=<?php echo $row['warranty_id'] ?>">Edit</a>
                                                     <a class="btn table_edit_btn" href="delete.php?src=pending&&id=<?php echo $row['id'] ?>">Delete</a>
-                                                    <a class="btn table_edit_btn" href="invoice.php?src=pending&&id=<?php echo $row['warranty_id'] ?>">Invoice</a>
+                                                    <a class="btn table_edit_btn" href="invoice.php?src=pending&&id=<?php echo $row['warranty_id'] ?>">View Post</a>
                                                 </div>                                            
 
                                             <?php } ?>

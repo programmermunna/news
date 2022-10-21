@@ -456,16 +456,6 @@ li.main-category.cat:hover .category-wrap {
   padding:5px 0;
 }
 
-@media print{
-  .invoice_actions{
-    display: none;
-  }
-  .signature{
-    visibility: hidden;
-  }
-}
-
-
 /* -------our cost section---------------- */
 .our_cost_main{
   margin: 30px 0;

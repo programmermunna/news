@@ -27,7 +27,7 @@
 
 
 
-<?php 
+<?php
 $category = mysqli_query($conn, "SELECT * FROM category_test");
 // $arr = array();
 while ($row = mysqli_fetch_assoc($category)) {

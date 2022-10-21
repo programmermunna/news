@@ -8,6 +8,15 @@
     </button>
   </a>
 
+  <a href="add-post.php">
+    <button class="btn nav_btn">
+      <div class="sidebar_icon">
+      <i class="fa-solid fa-plus"></i>
+      </div>
+      <span class="nav_text">Add Post</span>
+    </button>
+  </a>
+
   <a href="customer-all.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
@@ -44,7 +53,7 @@
     </button>
   </a>
 
-  <a href="brand-all.php">
+  <a href="menu.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
       <i class="fa-solid fa-ellipsis"></i>
@@ -53,7 +62,7 @@
     </button>
   </a>
 
-  <a href="brand-all.php">
+  <a href="ad-all.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
       <i class="fa-solid fa-rectangle-ad"></i>
@@ -71,11 +80,11 @@
       <span class="nav_toggle_icon">+</span>
     </button>
     <div class="hidden hide_nav_items nav_items">
-      <a href="pending-status.php">
-        <button class="sub_link">Pending</button>
+      <a href="draft.php">
+        <button class="sub_link">Draft</button>
       </a>
-      <a href="success-status.php">
-        <button class="sub_link">Aprove</button>
+      <a href="published.php">
+        <button class="sub_link">Published</button>
       </a>
     </div>
   </div>

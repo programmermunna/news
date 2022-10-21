@@ -71,7 +71,11 @@
                         <li><a href="">CONTACT</a></li>
                     </ul>
                 </div>
-                <!-- <div class="ad"></div> -->
+                <div class="login">
+                    <a href="">Login</a>
+                    <a href="">Sign In</a>
+                    <!-- <a href="">My Account</a> -->
+                </div>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@
 
 <!-- Content here -->
     <!-- News With Sidebar Start -->
-    <div class="container-fluid" style="margin-top:50px">
+    <div class="container-fluid"">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">

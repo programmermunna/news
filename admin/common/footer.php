@@ -1,7 +1,7 @@
 <?php
-$category = mysqli_query($conn, "SELECT * FROM category");
+$menu = mysqli_query($conn, "SELECT * FROM menu");
 $arr = array();
-while ($row = mysqli_fetch_assoc($category)) {
+while ($row = mysqli_fetch_assoc($menu)) {
     $json[] = $row;
 }
 echo "<div>";
