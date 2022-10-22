@@ -3,7 +3,7 @@
 <!-- Header -->
 <?php include("common/slider.php");?>
 
-<!-- Content here -->
+<!-- Content here --> 
     <!-- News With Sidebar Start -->
     <div class="container-fluid">
         <div class="container">
