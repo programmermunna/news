@@ -15,7 +15,6 @@ if (isset($_POST['submit'])) {
     $time = time();
     $reference = rand(1000,99999999);
 
-
     $file_name = $_FILES['file']['name'];
     $file_tmp = $_FILES['file']['tmp_name'];
     move_uploaded_file($file_tmp,"upload/$file_name");
@@ -53,23 +52,23 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div>
                     <label>Title</label>
-                    <input type="text" name="title" class="input" />
+                    <input type="text" name="title" placeholder="Example:  Lorem ipsum Doller" class="input" />
                 </div>
                 <div>
                     <label>Category</label>
-                    <input type="text" name="category" class="input" />
+                    <input type="text" name="category" placeholder="Example:  Programming" class="input" />
                 </div>
                 <div>
                     <label>Tag</label>
-                    <input type="text" name="tag" class="input" />
+                    <input type="text" name="tag" placeholder="Example:  html,css,js,php" class="input" />
                 </div>
                 <div>
                     <label>Summery</label>
-                    <textarea class="note_textarea" name="summery" id="" rows="5"></textarea>
+                    <textarea class="note_textarea" placeholder="Write some sentence of content" name="summery" id="" rows="5"></textarea>
                 </div>
                 <div>
                     <label>Content</label>
-                    <textarea id="summernote" name="content" id="" rows="5"></textarea>
+                    <textarea id="summernote" name="content"></textarea>
                 </div>
                 <div>
                     <label>Status</label>

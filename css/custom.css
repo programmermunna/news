@@ -93,3 +93,9 @@
 .border{
     box-shadow: -6px 7px#ddd;
 }
+.tag>a{
+    border:1px solid #FFCC00;
+    padding:0 5px;
+    color: #FFCC00;
+    margin:5px;
+}

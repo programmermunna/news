@@ -14,10 +14,6 @@
 // if($id<1){
 //   header('location:login.php');
 // }
-
-$post = mysqli_query($conn,"SELECT * FROM post ORDER BY id DESC");
-
-
 ?>
 
 <!DOCTYPE html>

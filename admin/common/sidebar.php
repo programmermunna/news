@@ -35,15 +35,6 @@
     </button>
   </a>
 
-  <a href="tag-all.php">
-    <button class="btn nav_btn">
-      <div class="sidebar_icon">
-      <i class="fa-solid fa-tag"></i>
-      </div>
-      <span class="nav_text">Tag</span>
-    </button>
-  </a>
-
   <a href="category-test.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">

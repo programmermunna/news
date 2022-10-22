@@ -9,10 +9,6 @@ if(isset($_GET['id'])){
     $visitors = mysqli_query($conn,"UPDATE post SET visits = visits+1 WHERE id = $id");
 }
 
-
-
-
-
 ?>
 <!-- Content here -->
     <!-- News With Sidebar Start -->
@@ -33,16 +29,31 @@ if(isset($_GET['id'])){
 
                             <?php echo $post['content']?>
                         </div>
+
                         <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                         <div class="d-flex align-items-center">
-                                        <a href="post-all.php?author=<?php echo $post['author'];?>"><img class="rounded-circle mr-2" src="img/user.jpg" width="25" height="25" alt="">
-                                        <small><?php echo $post['author'];?></small></a>                                        
-                                    </div>
+                                <a href="post-all.php?author=<?php echo $post['author'];?>"><img class="rounded-circle mr-2" src="img/user.jpg" width="25" height="25" alt="">
+                                <small><?php echo $post['author'];?></small></a>                                        
+                            </div>
                             <div class="d-flex align-items-center">
                                 <span class="ml-3"><i class="far fa-eye mr-2"></i><?php echo $post['visits'];?></span>
                                 <span class="ml-3"><i class="far fa-comment mr-2"></i>123</span>
                             </div>
                         </div>
+                        <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
+                        <div class="d-flex align-items-center tag">                          
+                            <h6 style="padding-right:10px">Tags: </h6>
+                            <?php 
+                            $post = mysqli_query($conn,"SELECT * FROM post WHERE id=".$post['id']."");
+                            $post = mysqli_fetch_assoc($post);                                
+                            $tag = explode(",",$post['tag']);
+                            $count = count($tag);
+                            foreach($tag AS $key => $value){
+                                 echo'<a href="post-all.php?tag='.$value.'">'.$value.'</a>';
+                             }?>
+                        </div>
+                        </div>
+
                     </div>
                     <!-- News Detail End -->
 

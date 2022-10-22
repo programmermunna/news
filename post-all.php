@@ -11,7 +11,7 @@ if(isset($_GET['category'])){
     $post_by = mysqli_query($conn,"SELECT * FROM post WHERE author='$author'");
 }elseif(isset($_GET['tag'])){
     $tag = $_GET['tag'];
-    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE tag='$tag'");
+    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE tag LIKE '%".$tag."%'");
 }elseif(isset($_GET['date'])){
     $date = $_GET['date'];
     $post_by = mysqli_query($conn,"SELECT * FROM post WHERE time='$date'");
