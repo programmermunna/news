@@ -84,14 +84,6 @@ p {
   margin-bottom: 1rem;
 }
 
-abbr[title],
-abbr[data-original-title] {
-  text-decoration: underline;
-  text-decoration: underline dotted;
-  cursor: help;
-  border-bottom: 0;
-  text-decoration-skip-ink: none;
-}
 
 address {
   margin-bottom: 1rem;
@@ -153,13 +145,12 @@ sup {
 
 a {
   color: #FFCC00;
-  text-decoration: none;
+  text-decoration: none !important;
   background-color: transparent;
 }
 
 a:hover {
   color: #b38f00;
-  text-decoration: underline;
 }
 
 a:not([href]):not([class]) {
@@ -2923,11 +2914,6 @@ fieldset:disabled a.btn {
 
 .btn-link:hover {
   color: #b38f00;
-  text-decoration: underline;
-}
-
-.btn-link:focus, .btn-link.focus {
-  text-decoration: underline;
 }
 
 .btn-link:disabled, .btn-link.disabled {
@@ -4556,10 +4542,6 @@ input[type="button"].btn-block {
   padding-right: 0.5rem;
   color: #6c757d;
   content: "/";
-}
-
-.breadcrumb-item + .breadcrumb-item:hover::before {
-  text-decoration: underline;
 }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {
@@ -9379,9 +9361,7 @@ a.text-dark:hover, a.text-dark:focus {
     text-shadow: none !important;
     box-shadow: none !important;
   }
-  a:not(.btn) {
-    text-decoration: underline;
-  }
+ 
   abbr[title]::after {
     content: " (" attr(title) ")";
   }

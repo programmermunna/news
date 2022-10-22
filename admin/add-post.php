@@ -22,8 +22,6 @@ if (isset($_POST['submit'])) {
     
     $sql = "INSERT INTO post(`title`, `category`, `tag`, `author`, `reference`, `img`, `status`,`time`, `summery`, `content`) VALUE( '$title', '$category', '$tag', '$author', '$reference', '$file_name', '$status', '$time', '$summery', '$content')";
 
-
-
     $query = mysqli_query($conn, $sql);
     if ($query) {
         $msg = "Successfully Created A New Post!";
@@ -34,8 +32,6 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
-
-
 
 <!-- Main Content -->
 <main class="main_content">

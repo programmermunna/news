@@ -15,6 +15,9 @@
 //   header('location:login.php');
 // }
 
+$post = mysqli_query($conn,"SELECT * FROM post ORDER BY id DESC");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -55,8 +58,8 @@
                 </div>
                 <div class="nav">
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">CATEGORIES</a>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="#!">CATEGORIES</a>
                             <ul>
                                 <li><a href="">PHP</a></li>
                                 <li><a href="">PYTHON</a></li>
@@ -67,8 +70,8 @@
                             </ul>
                         </li>
                         <li><a href="">SERVICES</a></li>
-                        <li><a href="">TEMPLATES</a></li>
-                        <li><a href="">CONTACT</a></li>
+                        <li><a href="post-all.php">POSTS</a></li>
+                        <li><a href="contact.php">CONTACT</a></li>
                     </ul>
                 </div>
                 <div class="login">
