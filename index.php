@@ -22,7 +22,7 @@
                         <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY id DESC LIMIT 4");
                         while($row = mysqli_fetch_assoc($post)){ ?>
 
-                        <div class="col-lg-6 col-md-6 col-sm-12 pb-3">
+                        <div class="col-lg-6 col-md-6 col-sm-12 pb-3"> 
                             <div class="position-relative border">
                                 <img style="height:200px;" class="img-fluid w-100" src="admin/upload/<?php echo $row['img'];?>" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
