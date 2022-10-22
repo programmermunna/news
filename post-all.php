@@ -23,7 +23,7 @@ if(isset($_GET['category'])){
 
 <!-- Content here -->
     <!-- News With Sidebar Start -->
-    <div class="container-fluid my-5">
+    <div class="container-fluid my-5"> 
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
