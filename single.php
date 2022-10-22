@@ -26,7 +26,7 @@ if(isset($_GET['id'])){
                                 <a class="text-body" href="post-all.php?date=<?php echo $post['time']?>"><?php $date = $post['time'];  echo date('d-m-Y', $date); ?></a>
                             </div>
                             <h1 class="mb-3 text-secondary text-uppercase font-weight-bold"><?php echo $post['title']?></h1>
-
+ 
                             <?php echo $post['content']?>
                         </div>
 
