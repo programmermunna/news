@@ -99,7 +99,7 @@ if (isset($_POST['update'])) {
                                                 </div>
                                             <?php } else { ?>
                                                 <div class="w-full flex_center gap-1">
-                                                    <a data-name="<?php echo $row['name'] ?>" data-id="<?php echo $row['id'] ?>" class="edit_category_btn btn table_edit_btn">Edit</a>
+                                                    <a class="edit_category_btn btn table_edit_btn">Edit</a>
                                                     <a class="btn table_edit_btn" href="delete.php?src=category&&id=<?php echo $row['id'] ?>">Delete</a>
                                                 </div>
                                             <?php } ?>
@@ -143,7 +143,7 @@ if (isset($_POST['update'])) {
                                                 </div>
                                             <?php } else { ?>
                                                 <div class="w-full flex_center gap-1">
-                                                    <a style="cursor:pointer" data-name="<?php echo $row['name'] ?>" data-id="<?php echo $row['id'] ?>" class="edit_category_btn btn table_edit_btn">Edit</a>
+                                                    <a style="cursor:pointer" class="edit_category_btn btn table_edit_btn" href="category-edit.php?id=<?php echo $row['id'] ?>">Edit</a>
                                                     <a style="cursor:pointer" class="btn table_edit_btn" href="delete.php?src=category&&id=<?php echo $row['id'] ?>">Delete</a>
                                                 </div>
                                             <?php } ?>
@@ -271,16 +271,6 @@ if (isset($_POST['update'])) {
     add_category_btn.addEventListener("click", () => {
         add_category.style.display = "block";
     });
-
-    all_edit_category_btn.forEach((btn) => {
-        btn.addEventListener("click", function() {
-            edit_category.style.display = "block";
-            console.log(btn?.dataset)
-            category_name_input.value = this.dataset?.name;
-            category_id_input.value = this.dataset?.id;
-        });
-       
-    })
 
 </script>
 

@@ -55,10 +55,14 @@
                         <div class="section-title mb-0">
                             <h4 class="m-0 text-uppercase font-weight-bold">Advertisement</h4>
                         </div>
-                        <div class="bg-white text-center border border-top-0 p-3">
-                            <a href="./single.php"><img class="img-fluid" src="img/news-800x500-2.jpg" alt=""></a>
+                        <div class="col-12">
+                            <div style="margin:0;" class="section-title">
+                                <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
+                            </div>
                         </div>
                     </div>
+
+
                     <!-- Ads End -->
 
                     <!-- Popular News Start -->                    
@@ -116,17 +120,18 @@
                             <h4 class="m-0 text-uppercase font-weight-bold">Tags</h4>
                         </div>
                         <div class="bg-white border border-top-0 p-3">
-                            <div class="d-flex flex-wrap m-n1">
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Politics</a>
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Corporate</a>
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Health</a>
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Education</a>
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Science</a>
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Business</a>
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Foods</a>
-                                <a href="./single.php" class="btn btn-sm btn-outline-secondary m-1">Travel</a>
+                        <div class="d-flex flex-wrap m-n1">
+
+                             <?php
+
+                            $post = mysqli_query($conn, "SELECT * FROM post ORDER BY RAND() ");
+                            $post = mysqli_fetch_assoc($post);
+                            $tag = explode(",", $post['tag']);
+                            $count = count($tag);
+                            foreach ($tag as $key => $value) {
+                                echo '<a class="btn btn-sm btn-outline-secondary m-1" href="post-all.php?tag=' . $value . '">' . $value . '</a>';
+                            }?>
+
                             </div>
                         </div>
                     </div>

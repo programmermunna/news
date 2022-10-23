@@ -5,21 +5,11 @@
 
 if (isset($_POST['add_ad'])) {
     $add_ad = $_POST['add_ad_name'];
+    $embed_code = $_POST['embed_code'];
 
-    $insert_ad = mysqli_query($conn, "INSERT INTO ad(name) VALUE('$add_ad')");
+    $insert_ad = mysqli_query($conn, "INSERT INTO ad(name,embed) VALUE('$add_ad','$embed_code')");
     if ($insert_ad) {
         $msg = "Successfully created a new ad";
-        header("location:ad-all.php?msg=$msg");
-    }
-}
-
-if (isset($_POST['update'])) {
-     $id = $_POST['ad_id'];
-     $up_ad = $_POST['up_ad']; 
-
-    $update_ad = mysqli_query($conn, "UPDATE ad SET name='$up_ad' WHERE id=$id");
-    if ($update_ad) {
-        $msg = "Successfully Updated a new ad";
         header("location:ad-all.php?msg=$msg");
     }
 }
@@ -65,6 +55,9 @@ if (isset($_POST['update'])) {
                                 </th>
                                 <th class="table_th">
                                     <div class="table_th_div"><span>ad Name</span></div>
+                                </th>
+                                <th class="table_th">
+                                    <div class="table_th_div"><span>Embed Code</span></div>
                                 </th>
                                 <th class="table_th">
                                     <div class="table_th_div"><span>Action</span></div>
@@ -136,6 +129,10 @@ if (isset($_POST['update'])) {
                                             <div class="text-center"><?php echo $row['name'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
+                                            <!-- <div class="text-center"><?php echo $row['embed'] ?></div> -->
+                                            <textarea style="width:100%"><?php echo $row['embed'] ?></textarea>
+                                        </td>
+                                        <td class="p-3 border whitespace-nowrap">
                                             <?php if ($admin_info['role'] == 'Moderator') { ?>
                                                 <div class="w-full flex_center gap-1">
                                                     <a class="btn table_edit_btn">Edit</a>
@@ -143,7 +140,7 @@ if (isset($_POST['update'])) {
                                                 </div>
                                             <?php } else { ?>
                                                 <div class="w-full flex_center gap-1">
-                                                    <a style="cursor:pointer" data-name="<?php echo $row['name'] ?>" data-id="<?php echo $row['id'] ?>" class="edit_ad_btn btn table_edit_btn">Edit</a>
+                                                    <a style="cursor:pointer" class="edit_ad_btn btn table_edit_btn" href="ad-edit.php?id=<?php echo $row['id'] ?>">Edit</a>
                                                     <a style="cursor:pointer" class="btn table_edit_btn" href="delete.php?src=ad&&id=<?php echo $row['id'] ?>">Delete</a>
                                                 </div>
                                             <?php } ?>
@@ -215,9 +212,13 @@ if (isset($_POST['update'])) {
                         </h1>
 
                         <div class="p-4 space-y-2">
-                            <label for="cat_name">ad Name</label>
+                            <label for="cat_name">Ad Name</label>
                             <input name="add_ad_name" type="text" class="input">
-
+                        </div>
+                        
+                        <div class="p-4 space-y-2">
+                            <label for="cat_name">Embed Code</label>
+                            <input name="embed_code" type="text" class="input">
                         </div>
 
                         <div class="p-4 flex items-center justify-end gap-x-3 border-t mt-4">
@@ -228,31 +229,6 @@ if (isset($_POST['update'])) {
                 </div>
             </form>
 
-            <!-- -------------Edit ad---------------- -->
-            <form action="" method="POST">
-                <div class="add_ad_wrapper edit_ad" style="display: none;">
-                    <div class=" fixed inset-0 w-full h-screen bg-black bg-opacity-50 z-40"></div>
-                    <div class="fixed w-[96%] md:w-[500px] inset-0 m-auto bg-white rounded shadow z-50 h-fit">
-                        <h1 class="p-4 border-b">
-                            Edit ad
-                        </h1>
-
-                        <div class="p-4 space-y-2">
-                            <label for="up_ad">ad Name</label>
-                            <input name="up_ad" id="ad_name" type="text" class="input">
-                            <input name="ad_id" id="ad_id" type="hidden">
-
-                        </div>
-
-                        <div class="p-4 flex items-center justify-end gap-x-3 border-t mt-4">
-                            <button class="btn w-fit p-2 bg-blue-600 text-white rounded focus:ring-2" type="submit" name="update">Update</button>
-                            <button style="background:#F87171;color:#fff;" type="button" class="btn w-fit p-2 bg-red-400 text-white rounded focus:ring-2 hide_add_new_cat">Cancel</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-
             </div>
         </section>
     </section>
@@ -262,25 +238,10 @@ if (isset($_POST['update'])) {
 <script>
     let add_ad_btn = document.querySelector(".add_ad_btn");
     let add_ad = document.querySelector(".add_ad");
-    let all_edit_ad_btn = document.querySelectorAll(".edit_ad_btn");
-    let edit_ad = document.querySelector(".edit_ad");
-    let hide_add_new_cat = document.querySelectorAll(".hide_add_new_cat");
-    const ad_name_input = document.getElementById("ad_name")
-    const ad_id_input = document.getElementById("ad_id")
 
     add_ad_btn.addEventListener("click", () => {
         add_ad.style.display = "block";
     });
-
-    all_edit_ad_btn.forEach((btn) => {
-        btn.addEventListener("click", function() {
-            edit_ad.style.display = "block";
-            console.log(btn?.dataset)
-            ad_name_input.value = this.dataset?.name;
-            ad_id_input.value = this.dataset?.id;
-        });
-       
-    })
 
 </script>
 

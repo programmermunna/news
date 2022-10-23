@@ -48,12 +48,25 @@
                             </div>
                         </div>
                         <?php } ?> 
+                        
 
                         <!-- =============ad================ -->
-
+                        <div class="col-12">
+                            <div class="section-title border">
+                                <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
+                            </div>
+                        </div>
                         <!-- =============ad================ -->
 
-                        <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY RAND() LIMIT 4");
+                        <div class="col-12">
+                            <div class="section-title">
+                                <h4 class="m-0 text-uppercase font-weight-bold">News</h4>
+                                <a class="text-secondary font-weight-medium text-decoration-none"
+                                    href="post-all.php">View All</a>
+                            </div>
+                        </div>
+
+                        <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY RAND() LIMIT 8");
                         while($row = mysqli_fetch_assoc($post)){ ?>
 
                         <div class="col-lg-6">
@@ -74,6 +87,14 @@
                             </div>
                         </div>
                         <?php } ?>
+
+                        <!-- =============ad================ -->
+                        <div class="col-12">
+                            <div class="section-title border">
+                                <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
+                            </div>
+                        </div>
+                        <!-- =============ad================ -->
 
                         <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY RAND() LIMIT 4");
                         while($row = mysqli_fetch_assoc($post)){ ?>

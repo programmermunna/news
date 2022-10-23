@@ -37,10 +37,10 @@ switch ($action) {
     $product_item = mysqli_query($conn, "DELETE FROM tmp_product WHERE order_no='$order' AND product_code='$id'");
     header("location:warranty-pos.php?order=$order");
     break;
-  case "brand":
-    $brand = mysqli_query($conn, "DELETE FROM brand WHERE id='$id'");
+  case "ad":
+    $brand = mysqli_query($conn, "DELETE FROM ad WHERE id='$id'");
     $msg = "Has beeen delted!";
-    header("location:brand-all.php?msg=$msg");
+    header("location:ad-all.php?msg=$msg");
     break;
   case "moderator":
     $brand = mysqli_query($conn, "DELETE FROM admin_info WHERE id='$id'");
