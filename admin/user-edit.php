@@ -17,8 +17,8 @@ if(isset($_POST['submit'])){
   $sql = "UPDATE customer SET name='$name', email='$email', phone='$phone', address='$address',city='$city', time='$time' WHERE id='$id'";
   $query = mysqli_query($conn,$sql);
   if($query){
-  $msg = "Successfully Updated Customer!";
-  header("location:customer-edit.php?msg=$msg&&id=$id");
+  $msg = "Successfully Updated user!";
+  header("location:user-edit.php?msg=$msg&&id=$id");
   }else{
   $msg = "Something is worng!";
   }
@@ -38,7 +38,7 @@ if(isset($_POST['submit'])){
         <div class="add_page_main_content">
           <div class="add_page_title">
             <span>Customer Information</span>
-            <a href="customer-view.php?id=<?php echo $id;?>">
+            <a href="user-view.php?id=<?php echo $id;?>">
               <span class="eye_icon"></span>
             </a>
           </div>

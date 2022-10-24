@@ -17,7 +17,6 @@ if($id<1){
 
 $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting"));
 $admin_info = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM admin_info WHERE id='$id'"));
-$invoice = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM invoice_setting WHERE id='$id'"));
 
 ?>
 
@@ -50,12 +49,8 @@ $invoice = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM invoice_setting 
           <!-- LOGO -->
           <div class="header_brand">
             <a href="index.php" class="go_home">
-              <div>
-                <?php if($setting['logo']!=""){ ?>                
-                  <img style="width:200px;height:60px" src="upload/<?php echo $setting['logo'];?>" alt="">
-                 <?php }else{ ?>                  
-                  <span style="font-size:19px;color:#fff;"><?php echo $setting['name'];?></span>
-               <?php  } ?>
+              <div>                
+                  <span style="font-size:19px;color:#fff;">Dashboard Panel</span>
               </div>
             </a>
           </div>

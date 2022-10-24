@@ -25,7 +25,6 @@ if(isset($_POST['submit'])){
   $row = mysqli_fetch_assoc($result);
   if($row){
   $id = $row['id'];
-  $name = $row['name'];
   $_SESSION['admin_id'] = $id;
   setcookie('admin_id', $id , time()+86000);
    $msg = "Welcome! Successfull login.";

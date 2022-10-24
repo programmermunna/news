@@ -19,7 +19,7 @@
                             </div>
                         </div>
 
-                        <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY id DESC LIMIT 4");
+                        <?php $post = mysqli_query($conn,"SELECT * FROM post  WHERE status='Publish' ORDER BY id DESC LIMIT 4");
                         while($row = mysqli_fetch_assoc($post)){ ?>
 
                         <div class="col-lg-6 col-md-6 col-sm-12 pb-3">
@@ -66,7 +66,7 @@
                             </div>
                         </div>
 
-                        <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY RAND() LIMIT 8");
+                        <?php $post = mysqli_query($conn,"SELECT * FROM post  WHERE status='Publish' ORDER BY RAND() LIMIT 8");
                         while($row = mysqli_fetch_assoc($post)){ ?>
 
                         <div class="col-lg-6">
@@ -91,12 +91,12 @@
                         <!-- =============ad================ -->
                         <div class="col-12">
                             <div class="section-title border">
-                                <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
+                                <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad  ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
                             </div>
                         </div>
                         <!-- =============ad================ -->
 
-                        <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY RAND() LIMIT 4");
+                        <?php $post = mysqli_query($conn,"SELECT * FROM post  WHERE status='Publish' ORDER BY RAND() LIMIT 4");
                         while($row = mysqli_fetch_assoc($post)){ ?>
 
                         <div class="col-lg-6 col-md-6 col-sm-12 pb-3">

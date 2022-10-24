@@ -22,7 +22,6 @@ if (isset($_POST['submit'])) {
     $content = $_POST['content'];
     $status = $_POST['status'];
 
-    $author = $admin_info['role'];
     $time = time();
     $reference = rand(1000,99999999);    
 
@@ -31,9 +30,9 @@ if (isset($_POST['submit'])) {
         $file_tmp = $_FILES['file']['tmp_name'];
         move_uploaded_file($file_tmp,"upload/$file_name");
 
-        $sql = "UPDATE post SET title='$title', category='$category', tag='$tag',  author='$author', reference = '$reference', img = '$file_name', status='$status',time='$time', summery= '$summery', content = '$content' WHERE id=$id";
+        $sql = "UPDATE post SET title='$title', category='$category', tag='$tag', reference = '$reference', img = '$file_name', status='$status',time='$time', summery= '$summery', content = '$content' WHERE id=$id";
     }else{
-        $sql = "UPDATE post SET title='$title', category='$category', tag='$tag',  author='$author', reference = '$reference', status='$status',time='$time', summery= '$summery', content = '$content' WHERE id=$id";
+        $sql = "UPDATE post SET title='$title', category='$category', tag='$tag', reference = '$reference', status='$status',time='$time', summery= '$summery', content = '$content' WHERE id=$id";
     }
     
     

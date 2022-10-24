@@ -12,6 +12,7 @@ if (isset($_POST['submit'])) {
     $status = $_POST['status'];
 
     $author = $admin_info['role'];
+    $email = $admin_info['email'];
     $time = time();
     $reference = rand(1000,99999999);
 
@@ -19,7 +20,7 @@ if (isset($_POST['submit'])) {
     $file_tmp = $_FILES['file']['tmp_name'];
     move_uploaded_file($file_tmp,"upload/$file_name");
     
-    $sql = "INSERT INTO post(`title`, `category`, `tag`, `author`, `reference`, `img`, `status`,`time`, `summery`, `content`) VALUE( '$title', '$category', '$tag', '$author', '$reference', '$file_name', '$status', '$time', '$summery', '$content')";
+    $sql = "INSERT INTO post(`email`,`title`, `category`, `tag`, `author`, `reference`, `img`, `status`,`time`, `summery`, `content`) VALUE( '$email','$title', '$category', '$tag', '$author', '$reference', '$file_name', '$status', '$time', '$summery', '$content')";
 
     $query = mysqli_query($conn, $sql);
     if ($query) {
@@ -56,7 +57,12 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div>
                     <label>Category</label>
-                    <input required type="text" name="category" placeholder="Example:  Programming" class="input" />
+                    <select name="category" id="" class="input">
+                    <?php $category = mysqli_query($conn,"SELECT * FROM category");
+                    while($row = mysqli_fetch_assoc($category)){
+                        echo '<option value="'.$row['name'].'">'.$row['name'].'</option>';
+                    }?>
+                    </select>
                 </div>
                 <div>
                     <label>Tag</label>

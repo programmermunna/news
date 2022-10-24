@@ -10,12 +10,15 @@ if(isset($_POST['submit'])){
   $email = $_POST['email'];
   $phone = $_POST['phone'];
   $address = $_POST['address'];
-  $city = $_POST['city'];
-  $country = $_POST['country'];
-  $website = $_POST['website'];
+  $twitter = $_POST['twitter'];
+  $facebook = $_POST['facebook'];
+  $linkedin = $_POST['linkedin'];
+  $instagram = $_POST['instagram'];
+  $youtube = $_POST['youtube'];
+  $map = $_POST['map'];
   $time = time();
 
-  $sql = "UPDATE setting SET name='$name',email='$email',phone='$phone',address='$address',city='$city',country='$country',website='$website',time='$time' WHERE id=1";
+  $sql = "UPDATE setting SET name='$name',email='$email',phone='$phone',address='$address',twitter='$twitter',facebook='$facebook',linkedin='$linkedin',instagram='$instagram',youtube='$youtube',map='$map',time='$time' WHERE id=1";
   $query = mysqli_query($conn,$sql);
   if($query){
   $msg = "Successfully Updated Setting!";
@@ -50,7 +53,7 @@ $row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id=1")
             </div>   
 
             <div>
-              <label>Phone/Mobile</label>
+              <label>Phone</label>
               <input type="text" name="phone" value="<?php echo $row['phone']?>" class="input" />
             </div>
             
@@ -60,26 +63,38 @@ $row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id=1")
             </div>
 
             <div>
-              <label>Company Address</label>
+              <label>Address</label>
               <input type="text" name="address" value="<?php echo $row['address']?>" class="input" />
             </div>
-
             <div>
-              <label>City</label>
-              <input type="text" name="city" value="<?php echo $row['city']?>" class="input" />
+              <label>Twitter</label>
+              <input type="text" name="twitter" value="<?php echo $row['twitter']?>" class="input" />
             </div>
             <div>
-              <label>Country</label>
-              <input type="text" name="country" value="<?php echo $row['country']?>" class="input" />
+              <label>Facebook</label>
+              <input type="text" name="facebook" value="<?php echo $row['facebook']?>" class="input" />
             </div>
             <div>
-              <label>website</label>
-              <input type="text" name="website" value="<?php echo $row['website']?>" class="input" />
+              <label>Linkedin</label>
+              <input type="text" name="linkedin" value="<?php echo $row['linkedin']?>" class="input" />
+            </div>
+            <div>
+              <label>Instagram</label>
+              <input type="text" name="instagram" value="<?php echo $row['instagram']?>" class="input" />
+            </div>
+            <div>
+              <label>Youtube</label>
+              <input type="text" name="youtube" value="<?php echo $row['youtube']?>" class="input" />
+            </div>
+            <div>
+              <label>Map</label>
+              <input type="text" name="map" value="<?php echo $row['youtube']?>" class="input" />
+              <textarea class="note_textarea" name="map" cols="30" rows="5"><?php echo $row['map']?></textarea>
+              <p style="text-align:center;color:gray;">Note: Please Resize Embed <b style="color:red">Width And Height</b> From Embed Code.</p>
             </div>
             
             <input style="cursor:pointer" class="btn submit_btn" name="submit" type="submit" value="Update" />
           </form>
-
 
           <?php      
        if(isset($_POST['favicon'])){
@@ -102,18 +117,14 @@ $row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id=1")
           <form action="" method="POST" enctype="multipart/form-data">
             <div>
               <label style="text-align:center">Requirement Size: 16*16</label>
-              <img src="upload/<?php echo $row['favicon']?>" alt="">
+              <img style="width:100px;height:100px;margin:0 auto" src="upload/<?php echo $row['favicon']?>" alt="">
             <label>Favicon</label>
-              <input                
-                type="file" 
-                name="favicon"
-                class="input"
-              />
+              <input type="file" name="favicon" class="input" />
             </div>
             <input style="cursor:pointer" class="btn submit_btn" name="favicon" type="submit" value="Update" />
             </form>
 
-            <?php      
+          <?php      
           if(isset($_POST['logo'])){
 
           $logo_name = $_FILES['logo']['name'];
@@ -135,7 +146,7 @@ $row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id=1")
             <div>
               <label style="text-align:center">Requirement Size: 200*60</label>
             <?php if(!empty($row['logo'])){ ?>
-              <img src="upload/<?php echo $row['logo']?>" alt="">
+              <img style="widht:200px;height:100px;margin:0 auto;" src="upload/<?php echo $row['logo']?>" alt="">
             <?php } ?>
             <label>Logo</label>
               <input               
@@ -147,8 +158,6 @@ $row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id=1")
             <input style="cursor:pointer" class="btn submit_btn" name="logo" type="submit" value="Update" />            
             <div>
             </form>
-
-
         </div>
       </section>
       <!-- Page Content -->

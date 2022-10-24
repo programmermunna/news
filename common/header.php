@@ -1,19 +1,20 @@
 <?php include("admin/include/functions.php");?>
 <?php
 
-// if(isset($_SESSION['admin_id'])){
-//    $id = $_SESSION['admin_id'];  
-// }elseif(isset($_COOKIE['admin_id'])){
-//   $id = $_COOKIE['admin_id'];
-// }else{
-//   $id = 0;
-// }
-// if(isset($_SESSION['admin_id'])){
-//   $id = $_SESSION['admin_id'];
-// }
-// if($id<1){
-//   header('location:login.php');
-// }
+if(isset($_SESSION['user_id'])){
+   $id = $_SESSION['user_id'];  
+}elseif(isset($_COOKIE['user_id'])){
+  $id = $_COOKIE['user_id'];
+}else{
+  $id = 0;
+}
+if(isset($_SESSION['user_id'])){
+  $id = $_SESSION['user_id'];
+}
+
+$admin_info = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM admin_info WHERE id=$id"));
+$setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id=1"));
+
 ?>
 
 <!DOCTYPE html>
@@ -21,17 +22,22 @@
 
 <head>
     <meta charset="utf-8">
-    <title>BizNews - Free News Website Template</title>
+    <title><?php echo $setting['name']?></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="admin/upload/<?php echo $setting['favicon']?>" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
@@ -50,7 +56,11 @@
         <div class="container">
             <div class="head">
                 <div class="logo">
-                    <a href="index.php">LOGO</a>
+                <?php if($setting['logo']!=""){ ?> 
+                    <img style="width:200px;height:60px" src="admin/upload/<?php echo $setting['logo'];?>">
+                    <?php }else{ ?> 
+                    <a href="index.php"><?php echo $setting['name']?></a>
+                    <?php  } ?>
                 </div>
                 <div class="nav">
                     <ul>
@@ -71,9 +81,21 @@
                     </ul>
                 </div>
                 <div class="login">
-                    <a href="">Login</a>
-                    <a href="">Sign In</a>
-                    <!-- <a href="">My Account</a> -->
+                    <?php 
+                    if(!isset($_SESSION['user_id'])){ ?>
+                    <a href="login.php">Login</a>
+                    <a href="sign-in.php">Sign In</a>
+                    <?php }else{?>
+                    <a href="#!">My Account</a>
+                    <div class="my_profile">
+                        <ul>
+                            <li><a href="profile.php">Profile</a></li>
+                            <li><a href="add-post.php">Add Post</a></li>
+                            <li><a href="my-post.php">My POsts</a></li>
+                            <li><a href="logout.php">Logout</a></li>
+                        </ul>
+                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

@@ -72,7 +72,7 @@
                         </div>
                         <div class="bg-white border border-top-0 p-3">
 
-                        <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY visits LIMIT 5");
+                        <?php $post = mysqli_query($conn,"SELECT * FROM post  WHERE status='Publish' ORDER BY visits LIMIT 5");
                         while($row = mysqli_fetch_assoc($post)){ ?>
 
                             <div class="d-flex align-items-center bg-white" style="height: 110px;">
@@ -97,7 +97,7 @@
                     <!-- Popular News End -->
 
                     <!-- Newsletter Start -->
-                    <div class="border mb-3">
+                    <!-- <div class="border mb-3">
                         <div class="section-title mb-0">
                             <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
                         </div>
@@ -111,7 +111,7 @@
                             </div>
                             <small>Lorem ipsum dolor sit amet elit</small>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Newsletter End -->
 
                     <!-- Tags Start -->

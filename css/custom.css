@@ -100,3 +100,77 @@
     margin:5px;
     
 }
+
+/* -------------my profile-------------- */
+
+
+.my_profile{
+    background: #fff;
+    width: 200px;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 1px 2px #ddd;
+    position: absolute;
+    display: none;
+    z-index: 999;
+}
+
+
+.my_profile ul{
+    margin: 0;
+    padding: 5px 10px;
+}
+
+.my_profile ul li{
+    list-style: none;
+    padding:5px 0px;
+}
+.my_profile ul li:hover{
+    background: #ddd;
+}
+
+.my_profile ul li a{
+    font-size: 12px;
+}
+.login:hover .my_profile{
+    display: block;
+}
+
+/* ---------submit post---- */
+
+.note_textarea {
+    display: block;
+    width: 100%;
+    border: 1px solid #dfdfdf;
+    box-shadow: 1px 1px 1px 1px #dfdfdf;
+    outline: none;
+    padding: 10px;
+  }
+.note_textarea::placeholder {
+    color: #d0cfcf;
+  }
+
+  /* ----------login form-------- */
+  .login_form label{
+    color: #000;
+    font-weight: bolder;
+  }
+  .login_form input::placeholder{
+    color: #d0cfcf;
+  }
+
+
+  /* ---------user post ----------- */
+  .user_table{
+    width: 100%;
+  }
+  
+  .user_table>thead>tr>th{
+    border:1px solid #ddd;
+    color: #000;
+    padding: 5px 10px;
+  }
+  .user_table>tbody>tr>td{
+    border:1px solid #ddd;
+    color: #000;
+    padding: 5px 10px;
+  }

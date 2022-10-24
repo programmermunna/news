@@ -7,7 +7,7 @@
 
             <?php 
             $week = time()-(604800);
-            $top_news = mysqli_query($conn,"SELECT * FROM post WHERE time > ".$week." ORDER BY visits DESC");
+            $top_news = mysqli_query($conn,"SELECT * FROM post  WHERE  status='Publish' AND time > ".$week." ORDER BY visits DESC");
             while($row = mysqli_fetch_assoc($top_news)){?>
 
                 <div class="position-relative overflow-hidden" style="height: 300px;">

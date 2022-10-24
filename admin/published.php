@@ -17,7 +17,7 @@
             <br>
             <div class="main_content_container">
                 <!-- Table -->
-                <div class="table_content_wrapper">
+                <div style="overflow:scroll;padding:15px;" class="table_content_wrapper">
                     <header class="table_header">
                         <div class="table_header_left">
 
@@ -47,6 +47,9 @@
                                 </th>
                                 <th class="table_th">
                                     <div class="table_th_div"><span>Category</span></div>
+                                </th>
+                                <th class="table_th">
+                                    <div class="table_th_div"><span>email</span></div>
                                 </th>
                                 <th class="table_th">
                                     <div class="table_th_div"><span>Author</span></div>
@@ -84,6 +87,9 @@
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['phone'] ?></div>
+                                        </td>
+                                        <td class="p-3 border whitespace-nowrap">
+                                            <div class="text-center"><?php echo $row['email'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['email'] ?></div>
@@ -142,13 +148,16 @@
                                             <div class="text-center"><?php echo $i ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['img'] ?></div>
+                                            <div class="text-center"><img style="height:50px" src="upload/<?php echo $row['img'] ?>" alt=""></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['title'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['category'] ?></div>
+                                        </td>
+                                        <td class="p-3 border whitespace-nowrap">
+                                            <div class="text-center"><?php echo $row['email'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['author'] ?></div>

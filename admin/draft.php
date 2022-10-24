@@ -49,6 +49,9 @@
                                     <div class="table_th_div"><span>Category</span></div>
                                 </th>
                                 <th class="table_th">
+                                    <div class="table_th_div"><span>Email</span></div>
+                                </th>
+                                <th class="table_th">
                                     <div class="table_th_div"><span>Author</span></div>
                                 </th>
                                 <th class="table_th">
@@ -159,7 +162,7 @@
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center">
-                                                <img src="upload/<?php echo $row['img'] ?>" alt="">
+                                                <img style="height:50px" src="upload/<?php echo $row['img'] ?>" alt="">
                                             </div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
@@ -167,6 +170,9 @@
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['category'] ?></div>
+                                        </td>
+                                        <td class="p-3 border whitespace-nowrap">
+                                            <div class="text-center"><?php echo $row['email'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['author'] ?></div>

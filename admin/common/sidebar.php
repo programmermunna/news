@@ -17,12 +17,12 @@
     </button>
   </a>
 
-  <a href="customer-all.php">
+  <a href="user-all.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
         <i class="fa-solid fa-user-tie"></i>
       </div>
-      <span class="nav_text">Customer</span>
+      <span class="nav_text">user</span>
     </button>
   </a>
 
