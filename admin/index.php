@@ -255,16 +255,10 @@
               <div class="monthly our_cost_box">
                 <h2><?php echo $today_our_cost['SUM(our_cost)'];?></h2>
                 <p>Monthly Cost</p>
-                <!-- <div class="card_line">
-                  <div style="width: 100%;height:7px;position:unset" class="from-blue-500 via-blue-600 to-blue-700"></div>
-                </div>  -->
               </div>
               <div class="total our_cost_box">
                 <h2><?php echo $total_our_cost['SUM(our_cost)'];?></h2>
                 <p>Total Cost</p>
-                <!-- <div class="card_line">
-                  <div style="width: 100%;height:7px;position:unset" class="from-blue-500 via-blue-600 to-blue-700"></div>
-                </div>  -->
               </div>
             </div>
 
@@ -272,9 +266,6 @@
               <div class="profit our_cost_box">
                 <h2><?php echo $total_profit;?></h2>
                 <p>Total Profit</p>
-                <!-- <div class="card_line">
-                  <div style="width: 100%;height:7px;position:unset" class="from-blue-500 via-blue-600 to-blue-700"></div>
-                </div>             -->
               </div>
             </div>
           </div>

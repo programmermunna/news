@@ -2,6 +2,9 @@
 <?php include("common/header.php");?>
 <!-- Header -->
 <?php
+if($admin_info['role']=='Moderator'){
+  header("location:index.php");
+}
 if(isset($_POST['mail_setting'])){
   $smtp_host = $_POST['smtp_host'];
   $smtp_port = $_POST['smtp_port'];

@@ -3,6 +3,17 @@
 <!-- Header -->
 <?php
 
+if($admin_info['role']=='Moderator'){
+    header("location:index.php");
+}
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $src = $_GET['src'];
+}
+
+$post = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM post WHERE id=$id"));
+
 if (isset($_POST['submit'])) {
     $title = $_POST['title'];
     $category = $_POST['category'];
@@ -13,23 +24,33 @@ if (isset($_POST['submit'])) {
 
     $author = $admin_info['role'];
     $time = time();
-    $reference = rand(1000,99999999);
+    $reference = rand(1000,99999999);    
 
-    $file_name = $_FILES['file']['name'];
-    $file_tmp = $_FILES['file']['tmp_name'];
-    move_uploaded_file($file_tmp,"upload/$file_name");
+    if(!empty($_FILES['file']['name'])){
+        $file_name = $_FILES['file']['name'];
+        $file_tmp = $_FILES['file']['tmp_name'];
+        move_uploaded_file($file_tmp,"upload/$file_name");
+
+        $sql = "UPDATE post SET title='$title', category='$category', tag='$tag',  author='$author', reference = '$reference', img = '$file_name', status='$status',time='$time', summery= '$summery', content = '$content' WHERE id=$id";
+    }else{
+        $sql = "UPDATE post SET title='$title', category='$category', tag='$tag',  author='$author', reference = '$reference', status='$status',time='$time', summery= '$summery', content = '$content' WHERE id=$id";
+    }
     
-    $sql = "INSERT INTO post(`title`, `category`, `tag`, `author`, `reference`, `img`, `status`,`time`, `summery`, `content`) VALUE( '$title', '$category', '$tag', '$author', '$reference', '$file_name', '$status', '$time', '$summery', '$content')";
+    
 
     $query = mysqli_query($conn, $sql);
     if ($query) {
-        $msg = "Successfully Created A New Post!";
-        header("location:add-post.php?msg=$msg");
-    } else {
-        $msg = "Something is worng!";
-        header("location:add-post.php?msg=$msg");
+
+        if($src == 'draft'){
+            $msg = "Successfully Updated Post!";
+            header("location:draft.php?msg=$msg");
+        }else{            
+            $msg = "Successfully Updated Post!";
+            header("location:published.php?msg=$msg");
+        }
     }
 }
+
 ?>
 
 <!-- Main Content -->
@@ -48,37 +69,46 @@ if (isset($_POST['submit'])) {
                 <div>
                     <p style="text-align:center;">Required Signature Size: 200*60px</p>
                     <label>Thumbnail</label>
-                    <input required type="file" name="file" class="input" />
+                    <input type="file" name="file" class="input" />
                 </div>
                 <div>
                     <label>Title</label>
-                    <input required type="text" name="title" placeholder="Example:  Lorem ipsum Doller" class="input" />
+                    <input type="text" name="title" placeholder="Example:  Lorem ipsum Doller" value="<?php echo $post['title']?>" class="input" />
                 </div>
                 <div>
                     <label>Category</label>
-                    <input required type="text" name="category" placeholder="Example:  Programming" class="input" />
+                    <input type="text" name="category" placeholder="Example:  Programming" value="<?php echo $post['category']?>" class="input" />
                 </div>
                 <div>
                     <label>Tag</label>
-                    <input type="text" name="tag" placeholder="Example:  html,css,js,php" class="input" />
+                    <input type="text" name="tag" placeholder="Example:  html,css,js,php" value="<?php echo $post['tag']?>" class="input" />
                 </div>
                 <div>
                     <label>Summery</label>
-                    <textarea required class="note_textarea" placeholder="Write some sentence of content" name="summery" id="" rows="5"></textarea>
+                    <textarea class="note_textarea"  name="summery" rows="5"><?php echo $post['summery']?></textarea>
                 </div>
                 <div>
                     <label>Content</label>
-                    <textarea required id="summernote" name="content"></textarea>
+                    <textarea id="summernote" name="content"><?php echo $post['content']?></textarea>
                 </div>
                 <div>
                     <label>Status</label>
                     <select name="status" class="input">
-                        <option value="Draft">Draft</option>
-                        <option value="Publish">Publish</option> 
+                    <?php
+                    
+                    if(($post['status'] == 'Draft')){
+                        echo  '<option selected value="Draft">Draft</option>';
+                        echo  '<option value="Publish">Publish</option>';
+                    }else{
+                        echo  '<option selected value="Publish">Publish</option>';
+                        echo  '<option value="Draft">Draft</option>';
+                    }
+                    ?>
                     </select>
                 </div>
                 <input style="cursor:pointer" class="btn submit_btn" name="submit" type="submit" value="Save" />
             </form>
+
         </div>
     </section>
     <!-- Page Content -->
