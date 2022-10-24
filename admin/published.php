@@ -160,9 +160,21 @@
                                         <div class="text-center"><?php $date = $row['time'];  echo date('d-m-Y', $date); ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="w-full flex_center gap-1">
-                                                <a class="btn table_edit_btn" href="invoice.php?src=success&&id=<?php echo $row['warranty_id'] ?>">View Post</a>
-                                            </div>
+                                            <?php if ($admin_info['role'] == 'Moderator') { ?>
+                                                <div class="w-full flex_center gap-1">
+                                                <div class="w-full flex_center gap-1">                                              
+                                                    <a onclick="alert('Moderator Can not do it!')" class="btn table_edit_btn">Edit</a>
+                                                    <a onclick="alert('Moderator Can not do it!')" class="btn table_edit_btn">Delete</a>
+                                                    <a class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
+                                                </div>
+                                                </div>
+                                            <?php } else { ?>
+                                                <div class="w-full flex_center gap-1">                                              
+                                                    <a class="btn table_edit_btn" href="edit-post.php?src=draft&&id=<?php echo $row['id'] ?>">Edit</a>
+                                                    <a class="btn table_edit_btn" href="delete.php?src=draft&&id=<?php echo $row['id'] ?>">Delete</a>
+                                                    <a class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
+                                                </div>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php  } ?>

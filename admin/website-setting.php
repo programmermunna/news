@@ -2,6 +2,9 @@
 <?php include("common/header.php");?>
 <!-- Header -->
 <?php
+if($admin_info['role']=='Moderator'){
+  header("location:index.php");
+}
 if(isset($_POST['submit'])){
   $name = $_POST['name'];
   $email = $_POST['email'];

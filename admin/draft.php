@@ -158,7 +158,9 @@
                                             <div class="text-center"><?php echo $i ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['img'] ?></div>
+                                            <div class="text-center">
+                                                <img src="upload/<?php echo $row['img'] ?>" alt="">
+                                            </div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['title'] ?></div>
@@ -179,23 +181,19 @@
                                         <td class="p-3 border whitespace-nowrap">
                                             <?php if ($admin_info['role'] == 'Moderator') { ?>
                                                 <div class="w-full flex_center gap-1">
-                                                    <a class="btn table_edit_btn send_btn" href="send-mail.php?option=<?php echo $option ?>&&id=<?php echo $row['warranty_id'] ?>">Send</a>
-                                                    <a class="btn table_edit_btn" onclick="alert('Moderator now allowed.')">Edit</a>
-                                                    <a class="btn table_edit_btn" onclick="alert('Moderator now allowed.')">Delete</a>
-                                                    <a class="btn table_edit_btn" href="invoice.php?src=pending&&id=<?php echo $row['warranty_id'] ?>">Invoice</a>
+                                                <div class="w-full flex_center gap-1">                                              
+                                                    <a onclick="alert('Moderator Can not do it!')" class="btn table_edit_btn">Edit</a>
+                                                    <a onclick="alert('Moderator Can not do it!')" class="btn table_edit_btn">Delete</a>
+                                                    <a class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
+                                                </div>
                                                 </div>
                                             <?php } else { ?>
-                                                <div class="w-full flex_center gap-1">
-                                                    <a class="btn table_edit_btn send_btn" href="send-mail.php?option=<?php echo $row['status'] ?>&&id=<?php echo $row['warranty_id'] ?>">Send</a>                                               
-                                                    <a class="btn table_edit_btn" href="warranty-pos.php?status=pending&&id=<?php echo $row['warranty_id'] ?>">Edit</a>
-                                                    <a class="btn table_edit_btn" href="delete.php?src=pending&&id=<?php echo $row['id'] ?>">Delete</a>
-                                                    <a class="btn table_edit_btn" href="invoice.php?src=pending&&id=<?php echo $row['warranty_id'] ?>">View Post</a>
-                                                </div>                                            
-
+                                                <div class="w-full flex_center gap-1">                                              
+                                                    <a class="btn table_edit_btn" href="edit-post.php?src=draft&&id=<?php echo $row['id'] ?>">Edit</a>
+                                                    <a class="btn table_edit_btn" href="delete.php?src=draft&&id=<?php echo $row['id'] ?>">Delete</a>
+                                                    <a class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
+                                                </div>
                                             <?php } ?>
-
-
-
                                         </td>
                                     </tr>
                                 <?php  } ?>

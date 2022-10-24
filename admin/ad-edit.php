@@ -2,6 +2,9 @@
 <?php include("common/header.php");?>
 <!-- Header -->
 <?php
+if($admin_info['role']=='Moderator'){
+    header("location:index.php");
+}
 if(isset($_GET['id'])){
   $id = $_GET['id'];
 }
