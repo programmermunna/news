@@ -36,8 +36,10 @@
                                 <thead>
                                     <tr>
                                         <th class="table_th"><div class="table_th_div"><span>Sl.</span></div></th>
+                                        <th class="table_th"><div class="table_th_div"><span>Image</span></div></th>
                                         <th class="table_th"><div class="table_th_div"><span>Name</span></div></th>
                                         <th class="table_th"><div class="table_th_div"><span>Email</span></div></th>
+                                        <th class="table_th"><div class="table_th_div"><span>Role</span></div></th>
                                         <th class="table_th"><div class="table_th_div"><span>Action</span></div></th>
                                     </tr>
                                 </thead>
@@ -83,23 +85,26 @@
                                     $currentPage = 1;
                                 }
                                 $startFrom = ($currentPage * $showRecordPerPage) - $showRecordPerPage;
-                                $totalEmpSQL = "SELECT * FROM admin_info WHERE role='User' ORDER BY id DESC";
+                                $totalEmpSQL = "SELECT * FROM admin_info WHERE role !='Admin' ORDER BY id DESC";
                                 $allEmpResult = mysqli_query($conn, $totalEmpSQL);
                                 $totalEmployee = mysqli_num_rows($allEmpResult);
                                 $lastPage = ceil($totalEmployee/$showRecordPerPage);
                                 $firstPage = 1;
                                 $nextPage = $currentPage + 1;
                                 $previousPage = $currentPage - 1;
-                                $empSQL = "SELECT * FROM admin_info WHERE role='User' ORDER BY id DESC LIMIT $startFrom, $showRecordPerPage";
+                                $empSQL = "SELECT * FROM admin_info WHERE role !='Admin' ORDER BY id DESC LIMIT $startFrom, $showRecordPerPage";
                                 $query = mysqli_query($conn, $empSQL);
                                 $i = 0;
-                                while($row = mysqli_fetch_assoc($query)){ $i++;
-                                // $i=0; while($row = mysqli_fetch_assoc($query )){ $i++ 
+                                while($row = mysqli_fetch_assoc($query)){ $i++; 
                                 ?>
                                     <tr>
                                         <td class="p-3 border whitespace-nowrap"><div class="text-center"><?php echo $i?></div></td>
+                                        <td class="p-3 border whitespace-nowrap"><div class="text-center">
+                                        <img style="width:60px;height:60px;margin:0 auto;border-radius:90px;" src="upload/<?php echo $row['file']?>" alt="">        
+                                    </div></td>
                                         <td class="p-3 border whitespace-nowrap"><div class="text-center"><?php echo $row['name']?></div></td>
                                         <td class="p-3 border whitespace-nowrap"><div class="text-center"><?php echo $row['email']?></div></td>
+                                        <td class="p-3 border whitespace-nowrap"><div class="text-center"><?php echo $row['role']?></div></td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <?php if($admin_info['role']=='Moderator'){ ?>
                                                 <div class="w-full flex_center gap-1">
@@ -112,6 +117,7 @@
                                             <a class="btn table_edit_btn" href="user-edit.php?id=<?php echo $row['id']?>">Edit</a>
                                             <a class="btn table_edit_btn" href="delete.php?src=user&&id=<?php echo $row['id']?>">Delete</a>
                                             <a class="btn table_edit_btn" href="user-view.php?id=<?php echo $row['id']?>">View</a>
+                                            <a class="btn table_edit_btn" target="_blank" href="../login.php?id=<?php echo $row['id']?>">Login</a>
                                             </div>
                                             <?php } ?>
                                         </td>

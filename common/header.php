@@ -8,6 +8,11 @@ if(isset($_SESSION['user_id'])){
 }else{
   $id = 0;
 }
+
+if($id==0){
+    // header("location:logout.php");
+}
+
 if(isset($_SESSION['user_id'])){
   $id = $_SESSION['user_id'];
 }

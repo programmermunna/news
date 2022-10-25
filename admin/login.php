@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
   $email = mysqli_real_escape_string($conn,$_POST['email']);
   $pass = md5($_POST['pass']);
   if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  $sql = "SELECT * FROM admin_info WHERE email='$email' AND pass='$pass'";
+  $sql = "SELECT * FROM admin_info WHERE email='$email' AND pass='$pass' AND role !='User'";
   $result = mysqli_query($conn,$sql);
   $row = mysqli_fetch_assoc($result);
   if($row){

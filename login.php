@@ -4,6 +4,30 @@
 
 <?php
 
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $user_info = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM admin_info WHERE id=$id"));
+
+    $email = $user_info['email'];
+    $pass = $user_info['pass'];
+
+    $sql = "SELECT * FROM admin_info WHERE email='$email' AND pass='$pass'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    if ($row) {
+        $id = $row['id'];
+        $_SESSION['user_id'] = $id;
+        setcookie('user_id', $id , time()+86000);
+        $msg = "Welcome! Successfull login.";
+        header("location:index.php?msg=$msg");
+    } else {
+        $msg = "Your Email or password is wrong!";
+        header("location:login.php?msg=$msg");
+    }
+
+}
+
 if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $pass = md5($_POST['pass']);

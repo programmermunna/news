@@ -7,6 +7,7 @@ if($admin_info['role']=='Moderator'){
 }
 if(isset($_GET['id'])){
   $id = $_GET['id'];
+  $src = $_GET['src'];
 }
 $row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE id='$id'"));
 
@@ -18,9 +19,10 @@ if (isset($_POST['submit'])) {
  $update_ad = mysqli_query($conn, "UPDATE ad SET name='$name',embed='$embed' WHERE id=$id");
  if ($update_ad) {
      $msg = "Successfully Updated a new Ad";
-     header("location:ad-all.php?msg=$msg");
+     header("location:$src.php?msg=$msg");
  }
 }
+
 
 ?>
 <!-- Main Content -->

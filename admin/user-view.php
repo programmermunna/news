@@ -5,7 +5,7 @@
 if(isset($_GET['id'])){
   $id = $_GET['id'];
 }
-$row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM user WHERE id='$id'"));
+$row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM admin_info WHERE id='$id'"));
 ?>
 <!-- Main Content -->
 <main class="main_content">
@@ -39,20 +39,16 @@ $row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM user WHERE id='$id'"
                     <p><?php echo $row['name']?></p>
                 </div>
                 <div>
-                    <b>Phone</b>
-                    <p><?php echo $row['phone']?></p>
-                </div>
-                <div>
                     <b>Email</b>
                     <p><?php echo $row['email']?></p>
                 </div>
                 <div>
-                    <b>City</b>
-                    <p><?php echo $row['city']?></p>
+                    <b>Role</b>
+                    <p><?php echo $row['role']?></p>
                 </div>
                 <div>
-                    <b>Address</b>
-                    <p><?php echo $row['address']?></p>
+                    <b>Image</b>
+                    <img style="width:300px;height:300px;margin:0 auto;" src="upload/<?php echo $row['file']?>">
                 </div>
             </form>
         </div>

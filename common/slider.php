@@ -1,5 +1,12 @@
-<div class="container-fluid pt-5 mb-3">
+<div class="container-fluid pt-5 mb-3">        
         <div class="container">
+            
+            <div class="col-12">
+                <div class="section-title border">
+                    <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad  ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
+                </div>
+            </div>
+
             <div class="section-title">
                 <h4 class="m-0 text-uppercase font-weight-bold">Trending News</h4>
             </div>
