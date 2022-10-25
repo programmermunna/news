@@ -10,12 +10,12 @@ if (isset($_GET['src'])) {
 
 $action = "$src";
 switch ($action) {
-  case "customer":
-    $customer = mysqli_query($conn, "DELETE FROM customer WHERE id=$id;");
-    $msg = "Customer has beeen delted!";
-    header("location:customer-all.php?msg=$msg");
+  case "user":
+    $customer = mysqli_query($conn, "DELETE FROM admin_info WHERE id=$id;");
+    $msg = "User has beeen delted!";
+    header("location:$action-all.php?msg=$msg");
     break;
-  case "category":
+  case "category": 
     $category = mysqli_query($conn, "DELETE FROM category WHERE id=$id;");
     $msg = "category has beeen delted!";
     header("location:category-all.php?msg=$msg");

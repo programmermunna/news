@@ -50,17 +50,25 @@
                     </div>
                     <!-- Social Follow End -->
 
-                    <!-- Ads Start -->
+
+
+                    <!------------- ad --------->
+                    <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=7 ORDER BY RAND() LIMIT 1"));
+                        if($ad>0){ ?>
+
                     <div class="border mb-3">
                         <div class="section-title mb-0">
                             <h4 class="m-0 text-uppercase font-weight-bold">Advertisement</h4>
                         </div>
                         <div class="col-12">
                             <div style="margin:0;" class="section-title">
-                                <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
+                                <?php echo $ad['embed'];?>
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
+                    <!------------- ad --------->
+
 
 
                     <!-- Ads End -->
@@ -97,21 +105,7 @@
                     <!-- Popular News End -->
 
                     <!-- Newsletter Start -->
-                    <!-- <div class="border mb-3">
-                        <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
-                        </div>
-                        <div class="bg-white text-center border border-top-0 p-3">
-                            <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-                            <div class="input-group mb-2" style="width: 100%;">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Email">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary font-weight-bold px-3">Sign Up</button>
-                                </div>
-                            </div>
-                            <small>Lorem ipsum dolor sit amet elit</small>
-                        </div>
-                    </div> -->
+                    <?php include("newsletter.php")?>
                     <!-- Newsletter End -->
 
                     <!-- Tags Start -->

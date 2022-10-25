@@ -2,7 +2,27 @@
 <?php include("common/header.php");?>
 <!-- Header -->
 
-<?php //include("common/slider.php");?>
+<?php 
+    $mail = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM mail_setting WHERE id=1"));
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];    
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];    
+    $headers = 'From: '.$email;    
+    $to = $mail['site_replay_email'];
+    $send = mail($to, $subject, $message, $headers);
+
+    if($send){
+        $msg = "Send Message Successfully";
+        header("location:contact.php?msg=$msg");
+    }else{
+        $msg = "Something is wrong!";
+        header("location:contact.php?msg=$msg");
+    }
+}
+
+?>
 
 <!-- Content here -->
     <!-- News With Sidebar Start -->
@@ -40,30 +60,30 @@
                             </div>
                         </div>
                         <h6 class="text-uppercase font-weight-bold mb-3">Contact Us</h6>
-                        <form>
+                        <form action="" method="POST">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control p-4" placeholder="Your Name"
+                                        <input name="name" type="text" class="form-control p-4" placeholder="Your Name"
                                             required="required" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control p-4" placeholder="Your Email"
+                                        <input name="email" type="email" class="form-control p-4" placeholder="Your Email"
                                             required="required" />
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control p-4" placeholder="Subject" required="required" />
+                                <input name="subject" type="text" class="form-control p-4" placeholder="Subject" required="required" />
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="4" placeholder="Message"
+                                <textarea name="message" class="form-control" rows="4" placeholder="Message"
                                     required="required"></textarea>
                             </div>
                             <div>
-                                <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
+                                <button name="submit" class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
                                     type="submit">Send Message</button>
                             </div>
                         </form>
@@ -79,3 +99,4 @@
 <!-- Side Navbar Links -->
 <?php include("common/footer.php");?>
 <!-- Side Navbar Links -->
+<?php if (isset($_GET['msg'])) { ?><div id="munna" data-text="<?php echo $_GET['msg']; ?>"></div><?php } ?>

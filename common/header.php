@@ -105,3 +105,18 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
             </div>
         </div>
     </div>
+
+    <?php
+    $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=1 ORDER BY RAND() LIMIT 1"));
+    if($ad>0){ ?>
+    <div class="container">
+        <div class="row">
+        <div class="col-12 mt-5">
+                <div style="width: fit-content;margin: 0 auto;" class="section-title border">
+                    <?php echo $ad['embed'];?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>
+    

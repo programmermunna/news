@@ -45,21 +45,24 @@
                     </div>
                     <!-- Social Follow End -->
 
-                    <!-- Newsletter Start -->
-                    <div class="mb-3">
+                    <!------------- ad --------->
+                    <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=7 ORDER BY RAND() LIMIT 1"));
+                        if($ad>0){ ?>
+
+                    <div class="border mb-3">
                         <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
+                            <h4 class="m-0 text-uppercase font-weight-bold">Advertisement</h4>
                         </div>
-                        <div class="bg-white text-center border border-top-0 p-3">
-                            <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-                            <div class="input-group mb-2" style="width: 100%;">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Email">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary font-weight-bold px-3">Sign Up</button>
-                                </div>
+                        <div class="col-12">
+                            <div style="margin:0;" class="section-title">
+                                <?php echo $ad['embed'];?>
                             </div>
-                            <small>Lorem ipsum dolor sit amet elit</small>
                         </div>
                     </div>
+                    <?php } ?>
+                    <!------------- ad --------->
+
+                    <!-- Newsletter Start -->
+                    <?php include("newsletter.php")?>
                     <!-- Newsletter End -->
                 </div>

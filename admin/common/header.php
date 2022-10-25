@@ -54,14 +54,12 @@ $admin_info = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM admin_info WH
               </div>
             </a>
           </div>
-
           <button onclick="toggle_nav()" class="menu_icon"></button>
-
-          <!-- Header Search Form -->
         </div>
-
+        
         <div class="header_right">
           <button onclick="toggle_full_screen()" class="expand_icon"></button>
+          <a style="color:#fff;font-wight:bolder;font-size:18px;" target="_blank" href="../login.php?id=<?php echo $admin_info['id']?>">Website View    </a>
 
           <!-- Header Profile Image -->
           <div class="profile_image_wrapper">

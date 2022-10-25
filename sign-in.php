@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
         header("location:sign-in.php?msg=$msg");
     } else {
             if($u_pass==$u_cpass){
+            $newsletter = mysqli_query($conn,"INSERT INTO newsletter(email,time) VALUE('$email','$time')");
             $insert = "INSERT INTO admin_info(name,email,pass,file,time) VALUE('$name','$email','$u_pass','$file_name','$time')";
             $insert_query = mysqli_query($conn, $insert);
             if ($insert_query) {

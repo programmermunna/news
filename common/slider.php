@@ -1,11 +1,5 @@
 <div class="container-fluid pt-5 mb-3">        
-        <div class="container">
-            
-            <div class="col-12">
-                <div class="section-title border">
-                    <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad  ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
-                </div>
-            </div>
+        <div class="container">           
 
             <div class="section-title">
                 <h4 class="m-0 text-uppercase font-weight-bold">Trending News</h4>
@@ -16,7 +10,6 @@
             $week = time()-(604800);
             $top_news = mysqli_query($conn,"SELECT * FROM post  WHERE  status='Publish' AND time > ".$week." ORDER BY visits DESC");
             while($row = mysqli_fetch_assoc($top_news)){?>
-
                 <div class="position-relative overflow-hidden" style="height: 300px;">
                     <img class="img-fluid h-100" src="admin/upload/<?php echo $row['img']?>" style="object-fit: cover;">
                     <div class="overlay">

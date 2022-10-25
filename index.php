@@ -51,11 +51,15 @@
                         
 
                         <!-- =============ad================ -->
+                        <?php 
+                        $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=2 ORDER BY RAND() LIMIT 1"));
+                        if($ad>0){ ?>
                         <div class="col-12">
                             <div class="section-title border">
-                                <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
+                                <?php echo $ad['embed'];?>                        
                             </div>
                         </div>
+                        <?php }?>
                         <!-- =============ad================ -->
 
                         <div class="col-12">
@@ -89,11 +93,15 @@
                         <?php } ?>
 
                         <!-- =============ad================ -->
+                        <?php 
+                        $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=3 ORDER BY RAND() LIMIT 1"));
+                        if($ad>0){ ?>
                         <div class="col-12">
                             <div class="section-title border">
-                                <?php $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad  ORDER BY RAND() LIMIT 1"));echo $ad['embed'];?>                        
+                                <?php echo $ad['embed'];?>                        
                             </div>
                         </div>
+                        <?php }?>
                         <!-- =============ad================ -->
 
                         <?php $post = mysqli_query($conn,"SELECT * FROM post  WHERE status='Publish' ORDER BY RAND() LIMIT 4");
@@ -126,6 +134,18 @@
                         </div>
                         <?php } ?>
 
+                        <!-- =============ad================ -->
+                        <?php 
+                        $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=4 ORDER BY RAND() LIMIT 1"));
+                        if($ad>0){ ?>
+                        <div class="col-12">
+                            <div class="section-title border">
+                                <?php echo $ad['embed'];?>                        
+                            </div>
+                        </div>
+                        <?php }?>
+                        <!-- =============ad================ -->
+
                     </div>
                 </div>
                 <?php include("common/sidebar.php");?>
@@ -138,3 +158,4 @@
 <!-- Side Navbar Links -->
 <?php include("common/footer.php");?>
 <!-- Side Navbar Links -->
+<?php if (isset($_GET['msg'])) { ?><div id="munna" data-text="<?php echo $_GET['msg']; ?>"></div><?php } ?>

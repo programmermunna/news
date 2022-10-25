@@ -57,16 +57,25 @@ if (isset($_GET['id'])) {
                 </div>
                 <!-- News Detail End -->
 
+                <!-- =============ad================ -->
+                <?php 
+                $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=5 ORDER BY RAND() LIMIT 1"));
+                if($ad>0){ ?>
+                <div class="col-12">
+                    <div class="section-title border">
+                        <?php echo $ad['embed'];?>                        
+                    </div>
+                </div>
+                <?php }?>
+                <!-- =============ad================ -->
+
                 <!-- Comment List Start -->
                 <div class="border mb-3">
                     <div class="section-title mb-0">
                         <h4 class="m-0 text-uppercase font-weight-bold">3 Comments</h4>
                     </div>
                     <div class="bg-white border border-top-0 p-4">
-
-
-                        
-
+                         
                         <div class="media mb-4">
                             <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                             <div class="media-body">
@@ -121,6 +130,19 @@ if (isset($_GET['id'])) {
                     </div>
                 </div>
                 <!-- Comment Form End -->
+                <!-- =============ad================ -->
+                <?php 
+                $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=6 ORDER BY RAND() LIMIT 1"));
+                if($ad>0){ ?>
+                <div class="col-12">
+                    <div class="section-title border">
+                        <?php echo $ad['embed'];?>                        
+                    </div>
+                </div>
+                <?php }?>
+                <!-- =============ad================ -->
+
+
             </div>
             <?php include("common/sidebar.php"); ?>
         </div>

@@ -80,7 +80,7 @@ if (isset($_POST['add_ad'])) {
                                         <a style="cursor:pointer" class="edit_ad_btn btn table_edit_btn"
                                             href="ad-edit.php?src=home-ad-3&&id=<?php echo $row['id'] ?>">Edit</a>
                                         <a style="cursor:pointer" class="btn table_edit_btn"
-                                            href="delete.php?src=home-ad-3&&id=<?php echo $row['id'] ?>">Delete</a>
+                                            href="delete-ad.php?src=home-ad-3&&id=<?php echo $row['id'] ?>">Delete</a>
                                     </div>
                                     <?php } ?>
                                 </td>
