@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
                             </div>
                             <h1 class="mb-3 text-secondary text-uppercase font-weight-bold"><?php echo $post['title']?></h1>
  
-                            <?php echo $post['content']?>
+                            <?php echo $post['content']?> 
                         </div>
 
                         <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
