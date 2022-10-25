@@ -30,7 +30,7 @@
                                 <div class="d-flex align-items-center mb-2">
                                     <i class="fa fa-envelope-open text-primary mr-2"></i>
                                     <h6 class="font-weight-bold mb-0">Email Us</h6>
-                                </div>
+                                </div> 
                                 <p class="m-0">info@example.com</p>
                             </div>
                             <div class="mb-3">
