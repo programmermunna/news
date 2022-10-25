@@ -106,6 +106,25 @@
       </a>
     </div>
   </div>
+
+  <div class="relative">
+      <button style="padding-left:17px" class="btn nav_btn nav_btn_toggler">
+        <div class="sidebar_icon">
+        <i class="fa-solid fa-users"></i>
+        </div>
+        <span class="nav_text">Newsletter</span>
+        <span class="nav_toggle_icon">+</span>
+      </button>
+      <div class="hidden hide_nav_items nav_items">
+        <a href="subscriber.php">
+          <button class="sub_link">Subscriber</button>
+        </a>
+        <a href="newsletter.php">
+          <button class="sub_link">Newsletter</button>
+        </a>
+        
+      </div>
+    </div>
   
 
   <?php if ($admin_info['role'] == 'Moderator') { ?>

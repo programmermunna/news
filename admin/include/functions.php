@@ -27,7 +27,7 @@ if(!session_start()){
         $mail->addReplyTo($site_email, 'Noreplay');
 
         // $mail->addAttachment('../upload/signature.png', 'signature.png');
-        $mail->addEmbeddedImage('upload/signature.png', 'signature.png');
+        // $mail->addEmbeddedImage('upload/signature.png', 'signature.png');
         $mail->isHTML(true);
 
         $mail->Subject = $subject;

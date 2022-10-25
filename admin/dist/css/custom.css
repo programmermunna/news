@@ -484,3 +484,9 @@ li.main-category.cat:hover .category-wrap {
 .card_top_numbers{
   color: #317EEB !important;
 }
+
+/* -----newsletter checkbox----- */
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
