@@ -20,7 +20,7 @@
                         </div>
 
                         <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY id DESC LIMIT 4");
-                        while($row = mysqli_fetch_assoc($post)){ ?>
+                        while($row = mysqli_fetch_assoc($post)){ ?> 
 
                         <div class="col-lg-6 col-md-6 col-sm-12 pb-3"> 
                             <div class="position-relative border">
