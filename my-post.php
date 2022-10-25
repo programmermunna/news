@@ -22,7 +22,7 @@
                                 <th>Status</th>
                                 <th>Date</th>
                             </tr>
-                        </thead>
+                        </thead> 
                         <tbody>
                             <?php
                                 $email = $admin_info['email'];
