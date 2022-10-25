@@ -31,7 +31,7 @@
                                     </div>
                                     <a class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold"
                                         href="./single.php">Lorem ipsum dolor sit amet elit...</a>
-                                    <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna
+                                    <p class="m-0">Dolor lorem eos dolor duo et eirmod sea. Dolor sit magna 
                                         rebum clita rebum dolor stet amet justo</p>
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
