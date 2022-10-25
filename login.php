@@ -27,7 +27,7 @@ if(isset($_GET['id'])){
     }
 
 }
-
+ 
 if (isset($_POST['submit'])) {
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $pass = md5($_POST['pass']);
