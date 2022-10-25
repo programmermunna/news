@@ -22,7 +22,7 @@ if(isset($_POST['submit'])){
     }
 }
 
-?>
+?> 
 
 <!-- Content here -->
     <!-- News With Sidebar Start -->
