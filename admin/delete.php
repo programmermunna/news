@@ -20,10 +20,15 @@ switch ($action) {
     $msg = "category has beeen delted!";
     header("location:category-all.php?msg=$msg");
     break;
-  case "product":
-    $product = mysqli_query($conn, "DELETE FROM product WHERE id=$id;");
-    $msg = "product has beeen delted!";
-    header("location:product-all.php?msg=$msg");
+  case "menu":
+    $product = mysqli_query($conn, "DELETE FROM menu WHERE id=$id;");
+    $msg = "Menu has beeen delted!";
+    header("location:menu.php?msg=$msg");
+    break;
+  case "sub_menu":
+    $product = mysqli_query($conn, "DELETE FROM menu WHERE id=$id;");
+    $msg = "Sub Menu has beeen delted!";
+    header("location:submenu.php?msg=$msg");
     break;
   case "draft":
     $pending = mysqli_query($conn, "DELETE FROM post WHERE id=$id");

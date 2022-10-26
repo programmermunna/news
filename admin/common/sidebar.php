@@ -44,15 +44,6 @@
     </button>
   </a>
 
-  <a href="menu.php">
-    <button class="btn nav_btn">
-      <div class="sidebar_icon">
-      <i class="fa-solid fa-ellipsis"></i>
-      </div>
-      <span class="nav_text">Menu</span>
-    </button>
-  </a>
-
   <div class="relative">
     <button style="padding-left:17px" class="btn nav_btn nav_btn_toggler">
       <div class="sidebar_icon">
@@ -70,6 +61,24 @@
       </a>
       <a href="published.php">
         <button class="sub_link">Published</button>
+      </a>
+    </div>
+  </div>
+
+  <div class="relative">
+    <button style="padding-left:17px" class="btn nav_btn nav_btn_toggler">
+      <div class="sidebar_icon">
+      <i class="fa-solid fa-ellipsis"></i>
+      </div>
+      <span class="nav_text">Menus</span>
+      <span class="nav_toggle_icon">+</span>
+    </button>
+    <div class="hidden hide_nav_items nav_items">
+      <a href="menu.php">
+        <button class="sub_link">Menu</button>
+      </a>
+      <a href="submenu.php">
+        <button class="sub_link">Submenu</button>
       </a>
     </div>
   </div>

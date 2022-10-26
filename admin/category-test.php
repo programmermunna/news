@@ -32,6 +32,11 @@ while ($row = mysqli_fetch_assoc($category)) {
     $arr[] = $row;
 }
 
+
+
+$arr = buildTree($arr);
+
+
 function buildTree(Array $data, $parent = 0) {
     $tree = array();
     foreach ($data as $d) {
@@ -47,9 +52,9 @@ function buildTree(Array $data, $parent = 0) {
     return $tree;
 }
 
-$rand = rand();
 
-$arr = buildTree($arr);
+
+
 
 function printTree($arr, $r = 0, $p = null) {
     foreach ($arr as $i => $t) {

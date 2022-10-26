@@ -28,7 +28,7 @@
                                 $email = $admin_info['email'];
                                 $i = 0;
                                 $user_post = mysqli_query($conn,"SELECT * FROM post WHERE email='$email'");
-                                while($row = mysqli_fetch_assoc($user_post)){ $i++?>
+                                while($row = mysqli_fetch_assoc($user_post)){ $i++ ?>
                             <tr>
                                 <td><?php echo $i;?></td>
                                 <td><img style="height:50px;" src="admin/upload/ss.jpg" alt=""></td>

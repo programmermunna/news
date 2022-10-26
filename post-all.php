@@ -48,7 +48,6 @@ if(isset($_GET['category'])){
 
                         <?php 
                         while($row = mysqli_fetch_assoc($post_by)){ ?>
-
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-3">
                             <div class="position-relative">
                                 <img style="height:200px;" class="img-fluid w-100" src="admin/upload/<?php echo $row['img'];?>" style="object-fit: cover;">

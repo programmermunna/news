@@ -23,7 +23,7 @@ if (isset($_POST['add_ad'])) {
     <!-- Side Navbar Links -->
     <!-- Page Content -->
     <section class="content_wrapper">
-        <h4 class="text-xl font-medium">Home Page ads 1</h4>        
+        <h4 class="text-xl font-medium">Home Page ads 2</h4>        
         <br>
         <section class="page_main_content">
             <div class="main_content_container">

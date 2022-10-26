@@ -56,8 +56,88 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
 </head>
 
 <body>
+
+
     <!-- Header area -->
     <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #fff;box-shadow:0px 1px 1px 1px #dfdfdf;">
+        <div class="container">
+            <div class="head">
+                <div class="logo">
+                <?php if($setting['logo']!=""){ ?> 
+                    <img style="width:200px;height:60px" src="admin/upload/<?php echo $setting['logo'];?>">
+                    <?php }else{ ?> 
+                    <a href="index.php"><?php echo $setting['name']?></a>
+                    <?php  } ?>
+                </div>
+
+                <div class="nav">
+                    <ul>
+                        <li><a href="index.php">Home</a></li>                       
+
+                        <?php                      
+                        function show_menu(){                      
+                           $menus = '';                       
+                           $menus .= menus();
+                           echo $menus;
+                       }
+                       
+                       function menus($parent_id=0){
+                           global $conn;
+                           $menu = '';
+                           $sql = '';
+                           if($parent_id==0){
+                               $sql = "SELECT * FROM menu WHERE parent_id = 0";
+                           }else{
+                               $sql = "SELECT * FROM menu WHERE parent_id = $parent_id";
+                           }
+                       
+                           $result = mysqli_query($conn,$sql);
+                           while($row = mysqli_fetch_assoc($result)){
+                               if($row['name']){
+                                   $menu.= '<li><a href="'.$row['url'].'">'.$row['name'].'</a>';
+                               }else{
+                               }
+                               $menu.= '<ul class="dropdown">'.menus($row['id']).'</ul>';
+                               $menu.= '</li>';
+                           }
+                           return $menu;
+                       }                       
+                        show_menu(); 
+                        ?>
+
+                        <li><a href="post-all.php">POSTS</a></li>
+                        <li><a href="contact.php">CONTACT</a></li>
+                    </ul>
+                </div>
+
+
+                <div class="login">
+                    <?php 
+                    if(!isset($_SESSION['user_id'])){ ?>
+                    <a href="login.php">Login</a>
+                    <a href="sign-in.php">Sign In</a>
+                    <?php }else{?>
+                    <a href="#!">My Account</a>
+                    <div class="my_profile">
+                        <ul>
+                            <li><a href="profile.php">Profile</a></li>
+                            <li><a href="add-post.php">Add Post</a></li>
+                            <li><a href="my-post.php">My POsts</a></li>
+                            <li><a href="logout.php">Logout</a></li>
+                        </ul>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Header area -->
+    <!-- <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #fff;box-shadow:0px 1px 1px 1px #dfdfdf;">
         <div class="container">
             <div class="head">
                 <div class="logo">
@@ -104,7 +184,7 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <?php
     $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=1 ORDER BY RAND() LIMIT 1"));

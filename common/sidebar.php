@@ -77,8 +77,22 @@
                         <div class="bg-white border border-top-0 p-3">
                         <div class="d-flex flex-wrap m-n1">
 
-                             <?php
-
+                            <?php
+                            $post = mysqli_query($conn, "SELECT * FROM post ORDER BY RAND() ");
+                            $post = mysqli_fetch_assoc($post);
+                            $tag = explode(",", $post['tag']);
+                            $count = count($tag);
+                            foreach ($tag as $key => $value) {
+                                echo '<a class="btn btn-sm btn-outline-secondary m-1" href="post-all.php?tag=' . $value . '">' . $value . '</a>';
+                            }?>
+                            <?php
+                            $post = mysqli_query($conn, "SELECT * FROM post ORDER BY RAND() ");
+                            $post = mysqli_fetch_assoc($post);
+                            $tag = explode(",", $post['tag']);
+                            $count = count($tag);
+                            foreach ($tag as $key => $value) {
+                                echo '<a class="btn btn-sm btn-outline-secondary m-1" href="post-all.php?tag=' . $value . '">' . $value . '</a>';
+                            }?><?php
                             $post = mysqli_query($conn, "SELECT * FROM post ORDER BY RAND() ");
                             $post = mysqli_fetch_assoc($post);
                             $tag = explode(",", $post['tag']);
@@ -89,6 +103,7 @@
 
                             </div>
                         </div>
+                        
                     </div>
                     <!-- Tags End -->
                 </div>
