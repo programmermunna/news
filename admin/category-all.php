@@ -1,5 +1,5 @@
 <!-- Header -->
-<?php include("common/header.php"); ?>
+<?php include("common/header.php"); ?> 
 <!-- Header -->
 <?php
 
