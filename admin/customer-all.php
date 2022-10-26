@@ -28,7 +28,7 @@
                                 <input type="search" name="src_text" placeholder="Search All Order" />
                                 <input style="cursor:pointer;" type="submit" name="search" class="btn" placeholder="Search" />
                             </div>
-                        </form>
+                        </form> 
                     </header>
 
                     <div class="table_parent" style="overflow: auto;">
