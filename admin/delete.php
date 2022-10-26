@@ -28,7 +28,7 @@ switch ($action) {
     $msg = "Has beeen delted!";
     header("location:pending-status.php?msg=$msg");
     break;
-  case "success":
+  case "success": 
     $success = mysqli_query($conn, "DELETE FROM product WHERE id=$id AND status='Success'");
     $msg = "Has beeen delted!";
     header("location:success.php?msg=$msg");
