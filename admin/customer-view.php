@@ -27,7 +27,7 @@ $row = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM customer WHERE id='$
                 </a>
                 <?php }else{ ?>
                 <a href="customer-edit.php?id=<?php echo $id;?>">
-                   <span class=" edit_icon"></span>
+                   <span class=" edit_icon"></span> 
                 </a>
                 <?php } ?>
 
