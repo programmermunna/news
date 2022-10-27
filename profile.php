@@ -29,7 +29,7 @@ if(isset($_POST['submit'])){
   }
   $old_pass = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM admin_info WHERE id=$admin_id"));
   $old_pass = $old_pass['pass'];
-
+ 
   if($pass==$old_pass){
     if($new_pass===$confirm_pass){
       $sql = "UPDATE admin_info SET name='$name',file='$file_name',email='$email',pass='$new_pass' WHERE id=$admin_id";
