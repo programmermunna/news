@@ -5,7 +5,7 @@ if(isset($_POST['submit'])){
 
    $insert = mysqli_query($conn,"INSERT INTO newsletter(email,time) VALUE('$email','$time')");
    if($insert){
-    $msg = "Successfully Sign-Up For Newsletter";
+    $msg = "Congratulations";
     header("location:index.php?msg=$msg");
    }
 }

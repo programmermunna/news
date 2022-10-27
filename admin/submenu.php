@@ -6,11 +6,12 @@
 if (isset($_POST['add_menu'])) {
     $id = $_POST['menu_id'];
     $sub_menu = $_POST['sub_menu'];
+    $content = $_POST['content'];
     $url = 'page.php?page='.strtolower($sub_menu).'.php';
 
     $check = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM menu WHERE name='$sub_menu'"));
     if($check<1){
-    $insert_sub_menu = mysqli_query($conn, "INSERT INTO menu(parent_id,name,url) VALUE('$id','$sub_menu','$url')");
+    $insert_sub_menu = mysqli_query($conn, "INSERT INTO menu(parent_id,name,url,content) VALUE('$id','$sub_menu','$url','$content')");
     if ($insert_sub_menu) {
         $msg = "Successfully created a Subnew menu";
         header("location:submenu.php?msg=$msg");
@@ -159,7 +160,7 @@ if (isset($_POST['add_menu'])) {
             <form action="" method="POST">
                 <div class="add_menu_wrapper add_menu" style="display: none;">
                     <div class="hide_add_new_cat fixed inset-0 w-full h-screen bg-black bg-opacity-50 z-40"></div>
-                    <div class="fixed w-[96%] md:w-[500px] inset-0 m-auto bg-white rounded shadow z-50 h-fit">
+                    <div class="fixed w-[96%] md:w-[500px] inset-0 m-auto bg-white rounded shadow z-50 h-fit" style="width:60%">
                         <h1 class="p-4 border-b">
                             Add SubMenu
                         </h1>
@@ -178,6 +179,11 @@ if (isset($_POST['add_menu'])) {
                         <div class="p-4 space-y-2">
                             <label for="cat_name">Sub Menu Name</label>
                             <input name="sub_menu" type="text" class="input">
+                        </div>
+
+                        <div class="p-4 space-y-2">
+                            <label for="cat_name">Content</label>
+                            <textarea name="content" id="summernote"></textarea>
                         </div>
 
                         <div class="p-4 flex items-center justify-end gap-x-3 border-t mt-4">
@@ -209,6 +215,27 @@ const menu_id_input = document.getElementById("menu_id")
 add_menu_btn.addEventListener("click", () => {
     add_menu.style.display = "block";
 });
+
+
+
+    $('#summernote').summernote({
+        placeholder: 'Write here details',
+        tabsize: 2,
+        height: 200,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['insert', ['link', 'picture', 'video']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+      });
+
+
+
+
 </script>
 
 <!-- Side Navbar Links -->

@@ -74,57 +74,117 @@ if (isset($_GET['id'])) {
                     <div class="section-title mb-0">
                         <h4 class="m-0 text-uppercase font-weight-bold">3 Comments</h4>
                     </div>
-                    <div class="bg-white border border-top-0 p-4">
-                         
-                        <div class="media mb-4">
-                            <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                            <div class="media-body">
-                                <h6><a class="text-secondary font-weight-bold" href="./single.php">John Doe</a>
-                                    <small><i>01 Jan 2045</i></small>
-                                </h6>
-                                <p>Diam amet duo labore stet elitr invidunt ea clita ipsum voluptua, tempor labore
-                                    accusam ipsum et no at. Kasd diam tempor rebum magna dolores sed sed eirmod
-                                    ipsum.</p>
-                                <button class="btn btn-sm btn-outline-secondary">Reply</button>
-                            </div>
-                        </div>
 
+                    <?php 
+                    // $is_comment = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM comment WHERE post_id=$id"));
+                    // if($is_comment<1){
+                    // }else{                 
+                    
+                    ?>
+                    <div class="bg-white border border-top-0 p-4">
+                    <?php                    
+                    $comment = mysqli_query($conn,"SELECT * FROM comment WHERE post_id=$id");                    
+                    while ($row = mysqli_fetch_assoc($comment)) {
+                        $arr[] = $row;
+                    }                    
+                    $arr = buildTree($arr);
+                    function buildTree(Array $data, $parent = 0) {
+                        $tree = array();
+                        foreach ($data as $d) {
+                            if ($d['parent_id'] == $parent) {
+                                $children = buildTree($data, $d['id']);
+                                // set a trivial key
+                                if (!empty($children)) {
+                                    $d['_children'] = $children;
+                                }
+                                $tree[] = $d;
+                            }
+                        }
+                        return $tree;
+                    }
+
+                    function printTree($arr, $r = 0, $p = null) {
+                        foreach ($arr as $i => $t) {
+                            $dash = ($t['parent_id'] == 0) ? '' : str_repeat('30+',$r);
+                            $dash = array_sum(explode( '+', $dash));
+                            $img = $t['img'];
+                            $name = $t['name'];
+                            $content = $t['content'];
+                            $comment_id = $t['id'];
+                            $time = date('d-m-y',$t['time']);
+                            $post_id = $_GET['id'];
+                        echo "<div style='border-bottom:1px solid gray;overflow-wrap: anywhere;'>";
+                                echo "<div style='padding-left:".$dash."px;margin:20px;display:flex;'>
+                                <img style='width:40px;height:40px;margin-right:10px;' src='admin/upload/$img' alt='img'>                              
+                                    <div>
+                                        <h4>$name <span style='font-size:14px'>$time</span> </h4>                                     
+                                        <p>$content</p>
+                                        <a style='padding:5px 10px;border:1px solid gray;color:gray' href='single.php?id=$post_id&&comment=$comment_id'>Reply</a>                                   
+                                    </div>
+                                </div>";
+                        echo "</div>";
+                           
+                            if (isset($t['_children'])) {
+                                echo "<div>";
+                                printTree($t['_children'], ++$r, $t['parent_id']);
+                                --$r;
+                                echo "</div>";
+                            }
+                        }
+                    }                    
+                    printTree($arr);
+                    ?>
                     </div>
+
+
+                    <?php //} ?>
+
                 </div>
                 <!-- Comment List End--->
+                <?php                 
+                if(isset($_POST['send_message'])){
 
+                    if(!isset($_SESSION['user_id'])){
+                        header("location:single.php?id=$id&&msg=Please login first");
+                    }else{        
+                    
+                    if(isset($_GET['comment'])){
+                    $parent_id = $_GET['comment'];
+                    }else{
+                    $parent_id = $_POST['parent_id'];
+                    }
+                        
+                    $user_id = $_SESSION['user_id'];
+                    $user_info = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM admin_info WHERE id=$user_id"));
+                    $name = $user_info['name'];
+                    $email = $user_info['email'];                  
+                    $img = $user_info['file'];                  
+                    $message = $_POST['message'];
+                    $time = time();
+                    $insert = mysqli_query($conn,"INSERT INTO comment(post_id,parent_id,name,email,content,img,time) VALUE('$id','$parent_id','$name','$email','$message','$img','$time')");
+                    if($insert){
+                        $msg='Message Sent Successfull';
+                        header("location:single.php?id=$id&&msg=$msg");
+                    }
+                    
+                }
+                }
+                
+                ?>
                 <!--- Comment Form Start -->
                 <div class="border mb-3">
                     <div class="section-title mb-0">
                         <h4 class="m-0 text-uppercase font-weight-bold">Leave a comment</h4>
                     </div>
                     <div class="bg-white border border-top-0 p-4">
-                        <form>
-                            <div class="form-row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="name">Name *</label>
-                                        <input type="text" class="form-control" id="name">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label for="email">Email *</label>
-                                        <input type="email" class="form-control" id="email">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="website">Website</label>
-                                <input type="url" class="form-control" id="website">
-                            </div>
-
+                        <form action="" method="POST">                       
                             <div class="form-group">
                                 <label for="message">Message *</label>
-                                <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                                <input name="parent_id" type="hidden" value="0">
+                                <textarea name="message" cols="30" rows="5" class="form-control"></textarea>
                             </div>
                             <div class="form-group mb-0">
-                                <input type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
+                                <input name="send_message" type="submit" value="Leave a comment" class="btn btn-primary font-weight-semi-bold py-2 px-3">
                             </div>
                         </form>
                     </div>
@@ -154,3 +214,4 @@ if (isset($_GET['id'])) {
 <!-- Side Navbar Links -->
 <?php include("common/footer.php"); ?>
 <!-- Side Navbar Links -->
+<?php if (isset($_GET['msg'])) { ?><div id="munna" data-text="<?php echo $_GET['msg']; ?>"></div><?php } ?>
