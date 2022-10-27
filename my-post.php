@@ -20,7 +20,7 @@
                                 <th>Title</th>
                                 <th>Category</th>
                                 <th>Status</th>
-                                <th>Date</th>
+                                <th>Date</th> 
                             </tr>
                         </thead>
                         <tbody>
