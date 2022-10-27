@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
                 $row = mysqli_fetch_assoc($result);
                 if ($row > 0) {
                     $id = $row['id'];
-                      $_SESSION['user_id'] = $id;
+                      $_SESSION['user_id'] = $id; 
                       setcookie('user_id', $id , time()+86000);
                     header('location:index.php');
                 }
