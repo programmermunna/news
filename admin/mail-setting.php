@@ -19,7 +19,7 @@ if(isset($_POST['mail_setting'])){
   }else{
     $msg = "Somethings error! Please try again.";
   
-  }
+  } 
 }
 
 if(isset($_POST['mail_test'])){
