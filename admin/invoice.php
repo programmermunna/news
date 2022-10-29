@@ -28,7 +28,7 @@
                 <div style="width:100%;display:flex;justify-content:space-between;">
                     <div style="color:#000;padding:20px;">
                         <h2 style="color:#065CB6;padding:5px 0;font-size:30px;font-weight:700">
-                            <?php echo $invoice['name'];?></h2>
+                            <?php echo $invoice['name'];?></h2> 
                         <p><?php echo $invoice['address'];?></p>
                         <p><?php echo $invoice['email'];?></p>
                     </div>
