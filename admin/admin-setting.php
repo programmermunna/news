@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 }
 }
 $admin_info = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM admin_info WHERE id=1"));
-?>
+?> 
     <!-- Main Content -->
     <main class="main_content">
 <!-- Side Navbar Links -->
