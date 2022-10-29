@@ -26,7 +26,7 @@
 
 
 
-
+ 
 <?php
 $category = mysqli_query($conn, "SELECT * FROM category_test"); 
 // $arr = array();
