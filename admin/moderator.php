@@ -28,7 +28,7 @@ if (isset($_POST['update'])) {
         $msg = "Successfully updated moderator name";
         header("location:moderator.php?msg=$msg");
     }
-}
+} 
 
 ?>
 <!-- Main Content -->
