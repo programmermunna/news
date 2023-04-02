@@ -39,11 +39,11 @@ if($admin_info['role']=='Normal User'){
                                 while($row = mysqli_fetch_assoc($user_post)){ $i++ ?>
                             <tr>
                                 <td><?php echo $i;?></td>
-                                <td><img style="height:50px;" src="admin/upload/ss.jpg" alt=""></td>
-                                <td><?php echo $row['title']?></td>
+                                <td><img style="height:50px;" src="admin/upload/<?php echo $row['img']?>" alt=""></td>
+                                <td><a style="color:#000" href="single-post.php?id=<?php echo $row['id']?>"><?php echo $row['title']?></a></td>
                                 <td><?php echo $row['category']?></td>
                                 <td><?php echo $row['status']?></td>
-                                <td><?php echo date("d-m-y",$row['time']);?></td>
+                                <td style="width: 100px;"><?php echo date("d-m-y",$row['time']);?></td>
                             </tr>
                             <?php } ?>
                         </tbody>

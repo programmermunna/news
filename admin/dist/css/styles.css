@@ -865,7 +865,11 @@ h3 {
 .side_nav .sub_link:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+
+    background: #317EEB;
+    color: #fff;
 }
+
 
 #toggle_nav_text {
   position: -webkit-sticky;
@@ -926,17 +930,10 @@ h3 {
 }
 
 .nav_btn:focus {
-  --tw-bg-opacity: 1;
-  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-  background: #317EEB;
-  color:#fff;
-}
-
-.nav_btn:active {
   /* --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity)); */
-  background: #317EEB;
-  color:#fff;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity)); */
+  background: #317EEB !important;
+  color:#fff !important;
 }
 
 @media (min-width: 640px) {
@@ -3047,8 +3044,10 @@ h3 {
 }
 
 .active_text_link {
-  background: #efeaea;
+  background: #317EEB;
+  color: #fff;
 }
+
 
 @media (max-width: 850px) {
   #side_nav {

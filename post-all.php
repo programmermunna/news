@@ -17,7 +17,7 @@ if(isset($_GET['category'])){
     $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND time='$date'");
 }elseif(isset($_GET['search'])){
     $search = $_GET['search'];
-    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND (title='$search' OR category='$search' OR author='$search' OR time='$search')");
+    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND (title LIKE '%$search%' OR category LIKE '%$search%' OR author LIKE '%$search%' OR time LIKE '%$search%')");
 }else{
     $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' ORDER BY id DESC");
 }
@@ -40,9 +40,9 @@ if(isset($_GET['category'])){
                             }elseif(isset($_GET['tag'])){
                             echo '<h4 class="m-0 text-uppercase font-weight-bold">All Posts</h4>'.$_GET['tag'];
                             }elseif(isset($_GET['date'])){
-                            echo '<h4 class="m-0 text-uppercase font-weight-bold">Posts Date </h4>'. date('d-m-Y', $_GET['date']);
+                            echo '<h4 class="m-0 text-uppercase font-weight-bold">All Posts</h4>'. date('d-m-Y', $_GET['date']);
                             }elseif(isset($_GET['search'])){
-                            echo '<h4 class="m-0 text-uppercase font-weight-bold">Posts Date </h4>'.$_GET['search'];
+                            echo '<h4 class="m-0 text-uppercase font-weight-bold">All Posts</h4>'.$_GET['search'];
                             }else{
                             echo '<h4 class="m-0 text-uppercase font-weight-bold">All Posts</h4>';
                             }

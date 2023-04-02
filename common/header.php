@@ -59,7 +59,7 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
             <div class="head">
                 <div class="logo">
                 <?php if($setting['logo']!=""){ ?> 
-                    <img style="width:200px;height:60px" src="admin/upload/<?php echo $setting['logo'];?>">
+                    <a href="index.php"><img style="width:200px;height:60px" src="admin/upload/<?php echo $setting['logo'];?>"></a>
                     <?php }else{ ?> 
                     <a href="index.php"><?php echo $setting['name']?></a>
                     <?php  } ?>
@@ -113,7 +113,7 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
                     <a href="login.php">লগিন</a>
                     <a href="sign-in.php">সাইন আপ</a>
                     <?php }else{?>
-                    <a href="#!">আমার একাউন্ট</a>
+                    <a style="background:orange;color:#fff;padding:10px" href="#!">আমার একাউন্ট</a>
                     <div class="my_profile">
                         <ul>
                             <?php

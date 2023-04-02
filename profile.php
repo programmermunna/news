@@ -83,7 +83,7 @@ if(isset($_POST['submit'])){
                             <input style="padding:3px;" type="file" name="file" class="form-control"/>
                         </div>
                         <div style="padding:10px;">
-                            <img src="admin/upload/<?php echo $admin_info['file']?>" alt="">
+                            <img style="width:50%;margin:0 auto;" src="admin/upload/<?php echo $admin_info['file']?>" alt="">
                         </div>
 
                         <div>
