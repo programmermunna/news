@@ -2,10 +2,9 @@
         <div class="container">           
 
             <div class="section-title">
-                <h4 class="m-0 text-uppercase font-weight-bold">Trending News</h4>
+                <h4 class="m-0 text-uppercase font-weight-bold">Popular News</h4>
             </div>
             <div class="owl-carousel news-carousel carousel-item-4 position-relative">
-
             <?php 
             $week = time()-(604800);
             $top_news = mysqli_query($conn,"SELECT * FROM post  WHERE  status='Publish' AND time > ".$week." ORDER BY visits DESC");

@@ -55,7 +55,7 @@ if (isset($_POST['submit'])) {
 <div class="container-fluid mt-5 pt-3">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-12">
                 <div class="section-title mb-0">
                     <h4 class="m-0 text-uppercase font-weight-bold">Sign IN</h4>
                 </div>
@@ -84,7 +84,7 @@ if (isset($_POST['submit'])) {
                     </form>
                 </div>
             </div>
-            <?php include("common/sidebar.php") ?>
+            <?php //include("common/sidebar.php") ?>
         </div>
     </div>
 </div>

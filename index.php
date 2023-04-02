@@ -1,12 +1,13 @@
 <!-- Header -->
 <?php include("common/header.php");?>
 <!-- Header -->
-<?php include("common/slider.php");?>
 
 <!-- Content here -->
     <!-- News With Sidebar Start -->
     <div class="container-fluid">
         <div class="container">
+            <br>
+            <br>
             <div class="row">
                 <div class="col-lg-8">
                     <div class="row">
@@ -150,12 +151,17 @@
             </div>
         </div>
     </div>
+
+
+<?php include("common/slider.php");?>
+
     <!-- News With Sidebar End --> 
     <script>
 	$(function(){
 		$('#menu').slicknav();
 	});
 </script>
+
 
 <!-- Side Navbar Links -->
 <?php include("common/footer.php");?>

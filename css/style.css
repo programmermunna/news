@@ -9580,9 +9580,10 @@ h6,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #FFFFFF;
+  /* background: #FFFFFF; */
   border: 1px solid #dee2e6;
   border-left: 5px solid #FFCC00;
+  background: #FFCC00;
 }
 
 .news-carousel .owl-nav {

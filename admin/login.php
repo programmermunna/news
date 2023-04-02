@@ -54,8 +54,7 @@ if(isset($_POST['submit'])){
   </head>
   <body class="bg-gray-100">
     <div class="w-11/12 mx-auto sm:w-96 flex_center min-h-screen py-10">
-      <div
-        class="text-left w-fit h-fit bg-white shadow-lg rounded overflow-hidden"
+      <div style="width:100%;" class="text-left w-fit h-fit bg-white shadow-lg rounded overflow-hidden"
       >
       <!-- <?php if(isset($msg)){ ?><div class="alert_success"><?php echo $msg; ?></div><?php }?></h1> -->
         <div
