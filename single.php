@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
     $post = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM post WHERE id=$id"));
     $visitors = mysqli_query($conn,"UPDATE post SET visits = visits+1 WHERE id = $id");
 }
-
+echo "hello";
 ?>
 <!-- Content here -->
     <!-- News With Sidebar Start -->
