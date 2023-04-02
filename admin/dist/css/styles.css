@@ -936,6 +936,20 @@ h3 {
   color:#fff !important;
 }
 
+.nav_btn:active {
+  /* --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity)); */
+  background: #317EEB !important;
+  color:#fff !important;
+}
+
+.nav_btn:active {
+  /* --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity)); */
+  background: #317EEB !important;
+  color:#fff !important;
+}
+
 @media (min-width: 640px) {
   .nav_btn {
     padding-left: 1.25rem;
@@ -3531,3 +3545,4 @@ h3 {
 .sub_link{
   padding-left:70px !important;
 }
+

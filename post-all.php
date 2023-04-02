@@ -14,7 +14,7 @@ if(isset($_GET['category'])){
     $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND tag LIKE '%".$tag."%'");
 }elseif(isset($_GET['date'])){
     $date = $_GET['date'];
-    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND time='$date'");
+    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND time = '$date'");
 }elseif(isset($_GET['search'])){
     $search = $_GET['search'];
     $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND (title LIKE '%$search%' OR category LIKE '%$search%' OR author LIKE '%$search%' OR time LIKE '%$search%')");

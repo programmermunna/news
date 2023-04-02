@@ -184,7 +184,7 @@
                                                 <div class="w-full flex_center gap-1">                                              
                                                     <a class="btn table_edit_btn" href="edit-post.php?src=draft&&id=<?php echo $row['id'] ?>">Edit</a>
                                                     <a class="btn table_edit_btn" href="delete.php?src=draft&&id=<?php echo $row['id'] ?>">Delete</a>
-                                                    <a class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
+                                                    <a target="_blank" class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
                                                 </div>
                                             <?php } ?>
                                         </td>

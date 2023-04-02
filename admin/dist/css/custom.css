@@ -482,11 +482,15 @@ li.main-category.cat:hover .category-wrap {
   color:#6B7280;
 }
 .card_top_numbers{
-  color: #317EEB !important;
+  color: #fff !important;
 }
 
 /* -----newsletter checkbox----- */
 input[type=checkbox] {
   width: 20px;
   height: 20px;
+}
+
+.nav_btn:checked{
+  background: red !important;
 }

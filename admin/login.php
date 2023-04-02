@@ -64,7 +64,7 @@ if(isset($_POST['submit'])){
           "
           class="flex_center p-8 bg-gradient-to-r from-yellow-600 to-red-600 text-white"
         >
-          <h2>Inventory</h2>
+          <h2>News Website</h2>
         </div>
         <form action="" method = "POST" class="p-6">
           <div class="space-y-5">

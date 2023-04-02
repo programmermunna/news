@@ -13,7 +13,7 @@
       <div class="sidebar_icon">
       <i class="fa-solid fa-plus"></i>
       </div>
-      <span class="nav_text">Add Post</span>
+      <span class="nav_text">Add Posts</span>
     </button>
   </a>
 
@@ -22,25 +22,16 @@
       <div class="sidebar_icon">
         <i class="fa-solid fa-user-tie"></i>
       </div>
-      <span class="nav_text">User</span>
+      <span class="nav_text">Users</span>
     </button>
   </a>
 
   <a href="category-all.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
-        <i class="fa-brands fa-bandcamp"></i>
+      <i class="fa-solid fa-chart-simple"></i>
       </div>
-      <span class="nav_text">Category</span>
-    </button>
-  </a>
-
-  <a href="category-test.php">
-    <button class="btn nav_btn">
-      <div class="sidebar_icon">
-      <i class="fa-solid fa-comment"></i>
-      </div>
-      <span class="nav_text">Comment</span>
+      <span class="nav_text">categories</span>
     </button>
   </a>
 
