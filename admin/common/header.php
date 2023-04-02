@@ -50,7 +50,7 @@ $admin_info = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM admin_info WH
           <div class="header_brand">
             <a href="index.php" class="go_home">
               <div>                
-                  <span style="font-size:19px;color:#fff;">Dashboard</span>
+                  <span style="font-size:19px;color:#fff;padding-left:14px;">Dashboard</span>
               </div>
             </a>
           </div>

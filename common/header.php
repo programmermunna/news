@@ -9,10 +9,6 @@ if(isset($_SESSION['user_id'])){
   $id = 0;
 }
 
-if($id==0){
-    // header("location:logout.php");
-}
-
 if(isset($_SESSION['user_id'])){
   $id = $_SESSION['user_id'];
 }
@@ -71,7 +67,9 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
 
                 <div  class="nav">
                     <ul id="menu">
-                        <li><a href="index.php">Home</a></li>
+                        <li><a href="index.php">হোম</a></li>
+
+                        
                         <?php                      
                         function show_menu(){                      
                            $menus = '';                       
@@ -103,8 +101,8 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
                         show_menu(); 
                         ?>
 
-                        <li><a href="post-all.php">POSTS</a></li>
-                        <li><a href="contact.php">CONTACT</a></li>
+                        <li><a href="post-all.php">পাঠ্য</a></li>
+                        <li><a href="contact.php">যোগাযোগ</a></li>
                     </ul>
                 </div>
 
@@ -112,21 +110,21 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
                 <div class="login">
                     <?php 
                     if(!isset($_SESSION['user_id'])){ ?>
-                    <a href="login.php">Login</a>
-                    <a href="sign-in.php">Sign In</a>
+                    <a href="login.php">লগিন</a>
+                    <a href="sign-in.php">সাইন আপ</a>
                     <?php }else{?>
-                    <a href="#!">My Account</a>
+                    <a href="#!">আমার একাউন্ট</a>
                     <div class="my_profile">
                         <ul>
                             <?php
                             if($admin_info['role'] == 'Normal User'){?>
-                                <li><a href="profile.php">Profile</a></li>
-                                <li><a href="logout.php">Logout</a></li>
+                                <li><a href="profile.php">একাউন্ট</a></li>
+                                <li><a href="logout.php">লগআউট</a></li>
                             <?php }else{ ?>
-                            <li><a href="profile.php">Profile</a></li>
-                            <li><a href="add-post.php">Add Post</a></li>
-                            <li><a href="my-post.php">My POsts</a></li>
-                            <li><a href="logout.php">Logout</a></li>
+                            <li><a href="profile.php">একাউন্ট</a></li>
+                            <li><a href="add-post.php">নতুন পাঠ্য</a></li>
+                            <li><a href="my-post.php">আমার পাঠ্য</a></li>
+                            <li><a href="logout.php">লগআউট</a></li>
                             <?php }?>
                         </ul>
                     </div>

@@ -859,6 +859,7 @@ h3 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   font-weight: 300;
+  text-align: left;
 }
 
 .side_nav .sub_link:hover {
@@ -918,18 +919,24 @@ h3 {
 }
 
 .nav_btn:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+  /* --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity)); */
+  background: #317EEB;
+  color:#fff;
 }
 
 .nav_btn:focus {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+  background: #317EEB;
+  color:#fff;
 }
 
 .nav_btn:active {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+  /* --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity)); */
+  background: #317EEB;
+  color:#fff;
 }
 
 @media (min-width: 640px) {
@@ -3036,7 +3043,7 @@ h3 {
 
 #side_nav a button {
   width: 100%;
-  padding: 15px;
+  padding: 15px;  
 }
 
 .active_text_link {
@@ -3521,4 +3528,7 @@ h3 {
   .invoice_btn_area {
     display: none;
   }
+}
+.sub_link{
+  padding-left:70px !important;
 }
