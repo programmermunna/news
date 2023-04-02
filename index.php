@@ -19,10 +19,10 @@
                             </div>
                         </div>
 
-                        <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY id DESC LIMIT 4");
-                        while($row = mysqli_fetch_assoc($post)){ ?> 
+                        <?php $post = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' ORDER BY id DESC LIMIT 4");
+                        while($row = mysqli_fetch_assoc($post)){ ?>
 
-                        <div class="col-lg-6 col-md-6 col-sm-12 pb-3"> 
+                        <div class="col-lg-6 col-md-6 col-sm-12 pb-3">
                             <div class="position-relative border">
                                 <img style="height:200px;" class="img-fluid w-100" src="admin/upload/<?php echo $row['img'];?>" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
@@ -37,23 +37,39 @@
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                     <div class="d-flex align-items-center">
-                                        <a style="color:#9A9DA2;" href="post-all.php?author=<?php echo $row['author'];?>"><img class="rounded-circle mr-2" src="img/user.jpg" width="25" height="25" alt="">
+                                        <a style="color:#9A9DA2;" href="post-all.php?author=<?php echo $row['author'];?>"><img class="rounded-circle mr-2" src="admin/upload/<?php echo $row['author_img'];?>" width="25" height="25" alt="">
                                         <small><?php echo $row['author'];?></small></a>                                        
                                     </div>
                                     <div class="d-flex align-items-center">                                        
                                         <span class="ml-3"><i class="far fa-eye mr-2"></i><?php echo $row['visits'];?></span>
-                                        <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <?php } ?> 
+                        
 
                         <!-- =============ad================ -->
-
+                        <?php 
+                        $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=2 ORDER BY RAND() LIMIT 1"));
+                        if($ad>0){ ?>
+                        <div class="col-12">
+                            <div class="section-title border">
+                                <?php echo $ad['embed'];?>                        
+                            </div>
+                        </div>
+                        <?php }?>
                         <!-- =============ad================ -->
 
-                        <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY RAND() LIMIT 4");
+                        <div class="col-12">
+                            <div class="section-title">
+                                <h4 class="m-0 text-uppercase font-weight-bold">News</h4>
+                                <a class="text-secondary font-weight-medium text-decoration-none"
+                                    href="post-all.php">View All</a>
+                            </div>
+                        </div>
+
+                        <?php $post = mysqli_query($conn,"SELECT * FROM post  WHERE status='Publish' ORDER BY RAND() LIMIT 8");
                         while($row = mysqli_fetch_assoc($post)){ ?>
 
                         <div class="col-lg-6">
@@ -75,7 +91,19 @@
                         </div>
                         <?php } ?>
 
-                        <?php $post = mysqli_query($conn,"SELECT * FROM post ORDER BY RAND() LIMIT 4");
+                        <!-- =============ad================ -->
+                        <?php 
+                        $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=3 ORDER BY RAND() LIMIT 1"));
+                        if($ad>0){ ?>
+                        <div class="col-12">
+                            <div class="section-title border">
+                                <?php echo $ad['embed'];?>                        
+                            </div>
+                        </div>
+                        <?php }?>
+                        <!-- =============ad================ -->
+
+                        <?php $post = mysqli_query($conn,"SELECT * FROM post  WHERE status='Publish' ORDER BY RAND() LIMIT 4");
                         while($row = mysqli_fetch_assoc($post)){ ?>
 
                         <div class="col-lg-6 col-md-6 col-sm-12 pb-3">
@@ -93,17 +121,28 @@
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                     <div class="d-flex align-items-center">
-                                        <a style="color:#9A9DA2;" href="post-all.php?author=<?php echo $row['author'];?>"><img class="rounded-circle mr-2" src="img/user.jpg" width="25" height="25" alt="">
+                                        <a style="color:#9A9DA2;" href="post-all.php?author=<?php echo $row['author'];?>"><img class="rounded-circle mr-2" src="admin/upload/<?php echo $row['author_img'];?>" width="25" height="25" alt="">
                                         <small><?php echo $row['author'];?></small></a>                                        
                                     </div>
                                     <div class="d-flex align-items-center">                                        
                                         <span class="ml-3"><i class="far fa-eye mr-2"></i><?php echo $row['visits'];?></span>
-                                        <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <?php } ?>
+
+                        <!-- =============ad================ -->
+                        <?php 
+                        $ad = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM ad WHERE position=4 ORDER BY RAND() LIMIT 1"));
+                        if($ad>0){ ?>
+                        <div class="col-12">
+                            <div class="section-title border">
+                                <?php echo $ad['embed'];?>                        
+                            </div>
+                        </div>
+                        <?php }?>
+                        <!-- =============ad================ -->
 
                     </div>
                 </div>
@@ -112,8 +151,13 @@
         </div>
     </div>
     <!-- News With Sidebar End --> 
-<!-- Content here -->
+    <script>
+	$(function(){
+		$('#menu').slicknav();
+	});
+</script>
 
 <!-- Side Navbar Links -->
 <?php include("common/footer.php");?>
 <!-- Side Navbar Links -->
+<?php if (isset($_GET['msg'])) { ?><div id="munna" data-text="<?php echo $_GET['msg']; ?>"></div><?php } ?>

@@ -2,7 +2,27 @@
 <?php include("common/header.php");?>
 <!-- Header -->
 
-<?php //include("common/slider.php");?>
+<?php 
+    $mail = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM mail_setting WHERE id=1"));
+if(isset($_POST['submit'])){
+    $name = $_POST['name'];
+    $email = $_POST['email'];    
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];    
+    $headers = 'From: '.$email;    
+    $to = $mail['site_replay_email'];
+    $send = mail($to, $subject, $message, $headers);
+
+    if($send){
+        $msg = "Send Message Successfully";
+        header("location:contact.php?msg=$msg");
+    }else{
+        $msg = "Something is wrong!";
+        header("location:contact.php?msg=$msg");
+    }
+}
+
+?>
 
 <!-- Content here -->
     <!-- News With Sidebar Start -->
@@ -16,126 +36,60 @@
                     <div class="bg-white border border-top-0 p-4 mb-3">
                         <div class="mb-4">
                             <h6 class="text-uppercase font-weight-bold">Contact Info</h6>
-                            <p class="mb-4">The contact form is currently inactive. Get a functional and working contact
-                                form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code
-                                and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore animi similique eum iste optio? Nisi aliquid nobis doloribus delectus alias modi excepturi voluptas ex assumenda esse quia eos, maiores repudiandae ea quod error ipsum commodi fugit voluptatum voluptatem perferendis</p>
                             <div class="mb-3">
                                 <div class="d-flex align-items-center mb-2">
                                     <i class="fa fa-map-marker-alt text-primary mr-2"></i>
                                     <h6 class="font-weight-bold mb-0">Our Office</h6>
                                 </div>
-                                <p class="m-0">123 Street, New York, USA</p>
+                                <p class="m-0"><?php echo $setting['address']?></p>
                             </div>
                             <div class="mb-3">
                                 <div class="d-flex align-items-center mb-2">
                                     <i class="fa fa-envelope-open text-primary mr-2"></i>
                                     <h6 class="font-weight-bold mb-0">Email Us</h6>
-                                </div> 
-                                <p class="m-0">info@example.com</p>
+                                </div>
+                                <p class="m-0"><?php echo $setting['email']?></p>
                             </div>
                             <div class="mb-3">
                                 <div class="d-flex align-items-center mb-2">
                                     <i class="fa fa-phone-alt text-primary mr-2"></i>
                                     <h6 class="font-weight-bold mb-0">Call Us</h6>
                                 </div>
-                                <p class="m-0">+012 345 6789</p>
+                                <p class="m-0"><?php echo $setting['phone']?></p>
                             </div>
                         </div>
                         <h6 class="text-uppercase font-weight-bold mb-3">Contact Us</h6>
-                        <form>
+                        <form action="" method="POST">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control p-4" placeholder="Your Name"
+                                        <input name="name" type="text" class="form-control p-4" placeholder="Your Name"
                                             required="required" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control p-4" placeholder="Your Email"
+                                        <input name="email" type="email" class="form-control p-4" placeholder="Your Email"
                                             required="required" />
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control p-4" placeholder="Subject" required="required" />
+                                <input name="subject" type="text" class="form-control p-4" placeholder="Subject" required="required" />
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" rows="4" placeholder="Message"
+                                <textarea name="message" class="form-control" rows="4" placeholder="Message"
                                     required="required"></textarea>
                             </div>
                             <div>
-                                <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
+                                <button name="submit" class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;"
                                     type="submit">Send Message</button>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <!-- Social Follow Start -->
-                    <div class="mb-3">
-                        <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Follow Us</h4>
-                        </div>
-                        <div class="bg-white border border-top-0 p-3">
-                            <a href="./single.php" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #39569E;">
-                                <i class="fab fa-facebook-f text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">12,345 Fans</span>
-                            </a>
-                            <a href="./single.php" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #52AAF4;">
-                                <i class="fab fa-twitter text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">12,345 Followers</span>
-                            </a>
-                            <a href="./single.php" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #0185AE;">
-                                <i class="fab fa-linkedin-in text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">12,345 Connects</span>
-                            </a>
-                            <a href="./single.php" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #C8359D;">
-                                <i class="fab fa-instagram text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">12,345 Followers</span>
-                            </a>
-                            <a href="./single.php" class="d-block w-100 text-white text-decoration-none mb-3"
-                                style="background: #DC472E;">
-                                <i class="fab fa-youtube text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">12,345 Subscribers</span>
-                            </a>
-                            <a href="./single.php" class="d-block w-100 text-white text-decoration-none"
-                                style="background: #055570;">
-                                <i class="fab fa-vimeo-v text-center py-4 mr-3"
-                                    style="width: 65px; background: rgba(0, 0, 0, .2);"></i>
-                                <span class="font-weight-medium">12,345 Followers</span>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Social Follow End -->
-
-                    <!-- Newsletter Start -->
-                    <div class="mb-3">
-                        <div class="section-title mb-0">
-                            <h4 class="m-0 text-uppercase font-weight-bold">Newsletter</h4>
-                        </div>
-                        <div class="bg-white text-center border border-top-0 p-3">
-                            <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p>
-                            <div class="input-group mb-2" style="width: 100%;">
-                                <input type="text" class="form-control form-control-lg" placeholder="Your Email">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary font-weight-bold px-3">Sign Up</button>
-                                </div>
-                            </div>
-                            <small>Lorem ipsum dolor sit amet elit</small>
-                        </div>
-                    </div>
-                    <!-- Newsletter End -->
-                </div>
+                <?php include("common/mini-sidebar.php") ?>
             </div>
         </div>
     </div>
@@ -145,3 +99,4 @@
 <!-- Side Navbar Links -->
 <?php include("common/footer.php");?>
 <!-- Side Navbar Links -->
+<?php if (isset($_GET['msg'])) { ?><div id="munna" data-text="<?php echo $_GET['msg']; ?>"></div><?php } ?>

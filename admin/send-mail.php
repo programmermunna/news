@@ -29,7 +29,7 @@ ob_start(); ?>
                 </div>                
             </div>
             <div><hr></div>
- 
+
             <div style="padding-top:20px;">
                 <p><b>Date:</b> <?php $time = time();echo date('d-m-y',$time);?></p>
                 <p><b>Status:</b> <span ><?php echo $option;?></span></p>

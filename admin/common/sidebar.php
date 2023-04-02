@@ -17,12 +17,12 @@
     </button>
   </a>
 
-  <a href="customer-all.php">
+  <a href="user-all.php">
     <button class="btn nav_btn">
       <div class="sidebar_icon">
         <i class="fa-solid fa-user-tie"></i>
       </div>
-      <span class="nav_text">Customer</span>
+      <span class="nav_text">User</span>
     </button>
   </a>
 
@@ -44,24 +44,6 @@
     </button>
   </a>
 
-  <a href="menu.php">
-    <button class="btn nav_btn">
-      <div class="sidebar_icon">
-      <i class="fa-solid fa-ellipsis"></i>
-      </div>
-      <span class="nav_text">Menu</span>
-    </button>
-  </a>
-
-  <a href="ad-all.php">
-    <button class="btn nav_btn">
-      <div class="sidebar_icon">
-      <i class="fa-solid fa-rectangle-ad"></i>
-      </div>
-      <span class="nav_text">Ad</span>
-    </button>
-  </a>
-
   <div class="relative">
     <button style="padding-left:17px" class="btn nav_btn nav_btn_toggler">
       <div class="sidebar_icon">
@@ -71,6 +53,9 @@
       <span class="nav_toggle_icon">+</span>
     </button>
     <div class="hidden hide_nav_items nav_items">
+      <a href="add-post.php">
+        <button class="sub_link">Add Post</button>
+      </a>
       <a href="draft.php">
         <button class="sub_link">Draft</button>
       </a>
@@ -79,6 +64,76 @@
       </a>
     </div>
   </div>
+
+  <div class="relative">
+    <button style="padding-left:17px" class="btn nav_btn nav_btn_toggler">
+      <div class="sidebar_icon">
+      <i class="fa-solid fa-ellipsis"></i>
+      </div>
+      <span class="nav_text">Menus</span>
+      <span class="nav_toggle_icon">+</span>
+    </button>
+    <div class="hidden hide_nav_items nav_items">
+      <a href="menu.php">
+        <button class="sub_link">Menu</button>
+      </a>
+      <a href="submenu.php">
+        <button class="sub_link">Submenu</button>
+      </a>
+    </div>
+  </div>
+  
+  <div class="relative">
+    <button style="padding-left:17px" class="btn nav_btn nav_btn_toggler">
+      <div class="sidebar_icon">
+      <i class="fa-solid fa-rectangle-ad"></i>
+      </div>
+      <span class="nav_text">Ads Status</span>
+      <span class="nav_toggle_icon">+</span>
+    </button>
+    <div class="hidden hide_nav_items nav_items">
+      <a href="top-ad.php">
+        <button class="sub_link">Top Ads</button>
+      </a>
+      <a href="home-ad-1.php">
+        <button class="sub_link">Home ad 1</button>
+      </a>
+      <a href="home-ad-2.php">
+        <button class="sub_link">Home ad 2</button>
+      </a>
+      <a href="home-ad-3.php">
+        <button class="sub_link">Home ad 3</button>
+      </a>
+      <a href="single-post-ad-1.php">
+        <button class="sub_link">Single Post ad 1</button>
+      </a>
+      <a href="single-post-ad-2.php">
+        <button class="sub_link">Single Post ad 2</button>
+      </a>
+      <a href="sidebar-ad.php">
+        <button class="sub_link">Sidebar ad </button>
+      </a>
+    </div>
+  </div>
+
+  <div class="relative">
+      <button style="padding-left:17px" class="btn nav_btn nav_btn_toggler">
+        <div class="sidebar_icon">
+        <i class="fa-solid fa-users"></i>
+        </div>
+        <span class="nav_text">Newsletter</span>
+        <span class="nav_toggle_icon">+</span>
+      </button>
+      <div class="hidden hide_nav_items nav_items">
+        <a href="subscriber.php">
+          <button class="sub_link">Subscriber</button>
+        </a>
+        <a href="newsletter.php">
+          <button class="sub_link">Newsletter</button>
+        </a>
+        
+      </div>
+    </div>
   
 
   <?php if ($admin_info['role'] == 'Moderator') { ?>
@@ -92,14 +147,8 @@
         <span class="nav_toggle_icon">+</span>
       </button>
       <div class="hidden hide_nav_items nav_items">
-        <a href="moderator.php">
-          <button class="sub_link">Moderator</button>
-        </a>
         <a href="mail-setting.php">
           <button class="sub_link">Mail Setting</button>
-        </a>
-        <a href="invoice-setting.php">
-          <button class="sub_link">Invoice Setting</button>
         </a>
       </div>
     </div>

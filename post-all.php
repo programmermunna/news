@@ -5,29 +5,31 @@
 
 if(isset($_GET['category'])){
     $category = $_GET['category'];
-    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE category='$category'");
+    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND category='$category'");
 }elseif(isset($_GET['author'])){
     $author = $_GET['author'];
-    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE author='$author'");
+    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND author='$author'");
 }elseif(isset($_GET['tag'])){
     $tag = $_GET['tag'];
-    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE tag LIKE '%".$tag."%'");
+    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND tag LIKE '%".$tag."%'");
 }elseif(isset($_GET['date'])){
     $date = $_GET['date'];
-    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE time='$date'");
+    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND time='$date'");
+}elseif(isset($_GET['search'])){
+    $search = $_GET['search'];
+    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' AND (title='$search' OR category='$search' OR author='$search' OR time='$search')");
 }else{
-    $post_by = mysqli_query($conn,"SELECT * FROM post ORDER BY id DESC");
+    $post_by = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' ORDER BY id DESC");
 }
 ?>
 
-
 <!-- Content here -->
     <!-- News With Sidebar Start -->
-    <div class="container-fluid my-5"> 
+    <div class="container-fluid my-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="row"> 
+                    <div class="row">
                         <div class="col-12">
                             <div class="section-title">
                             <?php 
@@ -38,8 +40,10 @@ if(isset($_GET['category'])){
                             }elseif(isset($_GET['tag'])){
                             echo '<h4 class="m-0 text-uppercase font-weight-bold">All Posts</h4>'.$_GET['tag'];
                             }elseif(isset($_GET['date'])){
-                                echo '<h4 class="m-0 text-uppercase font-weight-bold">Posts Date </h4>'. date('d-m-Y', $_GET['date']);
-                                }else{
+                            echo '<h4 class="m-0 text-uppercase font-weight-bold">Posts Date </h4>'. date('d-m-Y', $_GET['date']);
+                            }elseif(isset($_GET['search'])){
+                            echo '<h4 class="m-0 text-uppercase font-weight-bold">Posts Date </h4>'.$_GET['search'];
+                            }else{
                             echo '<h4 class="m-0 text-uppercase font-weight-bold">All Posts</h4>';
                             }
                             ?>
@@ -48,7 +52,6 @@ if(isset($_GET['category'])){
 
                         <?php 
                         while($row = mysqli_fetch_assoc($post_by)){ ?>
-
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-3">
                             <div class="position-relative">
                                 <img style="height:200px;" class="img-fluid w-100" src="admin/upload/<?php echo $row['img'];?>" style="object-fit: cover;">
@@ -64,17 +67,19 @@ if(isset($_GET['category'])){
                                 </div>
                                 <div class="d-flex justify-content-between bg-white border border-top-0 p-4">
                                     <div class="d-flex align-items-center">
-                                        <a style="color:#9A9DA2;" href="post-all.php?author=<?php echo $row['author'];?>"><img class="rounded-circle mr-2" src="img/user.jpg" width="25" height="25" alt="">
+                                        <a style="color:#9A9DA2;" href="post-all.php?author=<?php echo $row['author'];?>"><img class="rounded-circle mr-2" src="admin/upload/<?php echo $row['author_img'];?>" width="25" height="25" alt="">
                                         <small><?php echo $row['author'];?></small></a>                                        
                                     </div>
                                     <div class="d-flex align-items-center">                                        
                                         <span class="ml-3"><i class="far fa-eye mr-2"></i><?php echo $row['visits'];?></span>
-                                        <small class="ml-3"><i class="far fa-comment mr-2"></i>123</small>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <?php } ?>  
+
+
+
 
                     </div>
                 </div>

@@ -8,8 +8,7 @@ $dbname = "news";
 $conn = mysqli_connect($servername, $username, $password,$dbname);
 if($conn){
     echo "";
-}else{
-    
+}else{    
     echo "error";
 }
 

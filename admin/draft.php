@@ -30,7 +30,7 @@
                             </div>
                         </form>
                     </header>
- 
+
                     <div style="width: 100%; overflow:auto">
 
                     <table class="table">
@@ -47,6 +47,9 @@
                                 </th>
                                 <th class="table_th">
                                     <div class="table_th_div"><span>Category</span></div>
+                                </th>
+                                <th class="table_th">
+                                    <div class="table_th_div"><span>Email</span></div>
                                 </th>
                                 <th class="table_th">
                                     <div class="table_th_div"><span>Author</span></div>
@@ -66,7 +69,7 @@
                             <?php
                             if (isset($_POST['search'])) {
                                 $src_text = trim($_POST['src_text']);
-                                $sql = "SELECT * FROM orders WHERE (name = '$src_text' OR phone = '$src_text' OR email = '$src_text' OR product_name = '$src_text' OR brand = '$src_text' OR category = '$src_text' OR warranty_fee = '$src_text' OR delivery_fee = '$src_text' OR advance_amount = '$src_text' OR due_amount = '$src_text' OR status = '$src_text') AND status !='Success'";
+                                $sql = "SELECT * FROM post WHERE (email = '$src_text' OR title = '$src_text' OR category = '$src_text' OR email = '$src_text') AND status ='Draft'";
                                 $search_query = mysqli_query($conn, $sql);
                             }
                             if (isset($search_query)) {
@@ -79,53 +82,45 @@
                                             <div class="text-center"><?php echo $i ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['name'] ?></div>
+                                            <div class="text-center">
+                                                <img style="height:50px" src="upload/<?php echo $row['img'] ?>" alt="">
+                                            </div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['phone'] ?></div>
+                                            <div class="text-center"><?php echo $row['title'] ?></div>
+                                        </td>
+                                        <td class="p-3 border whitespace-nowrap">
+                                            <div class="text-center"><?php echo $row['category'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['email'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['product_name'] ?></div>
-                                        </td>
-                                        <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['receive_date'] ?></div>
-                                        </td>
-                                        <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['delivery_date'] ?></div>
-                                        </td>
-                                        <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['warranty_fee'] ?></div>
-                                        </td>
-                                        <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['delivery_fee'] ?></div>
+                                            <div class="text-center"><?php echo $row['author'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['status'] ?></div>
+                                        </td>
+                                        <td class="p-3 border whitespace-nowrap">
+                                            <div class="text-center"><?php $date = $row['time'];  echo date('d-m-Y', $date); ?></div>
                                         </td>
 
                                         <td class="p-3 border whitespace-nowrap">
                                             <?php if ($admin_info['role'] == 'Moderator') { ?>
                                                 <div class="w-full flex_center gap-1">
-                                                    <a class="btn table_edit_btn send_btn" href="send-mail.php?option=<?php echo $option ?>&&id=<?php echo $row['warranty_id'] ?>">Send</a>
-                                                    <a class="btn table_edit_btn" onclick="alert('Moderator now allowed.')">Edit</a>
-                                                    <a class="btn table_edit_btn" onclick="alert('Moderator now allowed.')">Delete</a>
-                                                    <a class="btn table_edit_btn" href="invoice.php?src=pending&&id=<?php echo $row['warranty_id'] ?>">Invoice</a>
+                                                <div class="w-full flex_center gap-1">                                              
+                                                    <a onclick="alert('Moderator Can not do it!')" class="btn table_edit_btn">Edit</a>
+                                                    <a onclick="alert('Moderator Can not do it!')" class="btn table_edit_btn">Delete</a>
+                                                    <a class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
+                                                </div>
                                                 </div>
                                             <?php } else { ?>
-                                                <div class="w-full flex_center gap-1">
-                                                    <a class="btn table_edit_btn send_btn" href="send-mail.php?option=<?php echo $row['status'] ?>&&id=<?php echo $row['warranty_id'] ?>">Send</a>                                               
-                                                    <a class="btn table_edit_btn" href="warranty-pos.php?status=pending&&id=<?php echo $row['warranty_id'] ?>">Edit</a>
-                                                    <a class="btn table_edit_btn" href="delete.php?src=pending&&id=<?php echo $row['id'] ?>">Delete</a>
-                                                    <a class="btn table_edit_btn" href="invoice.php?src=pending&&id=<?php echo $row['warranty_id'] ?>">Invoice</a>
-                                                </div>                                            
-
+                                                <div class="w-full flex_center gap-1">                                              
+                                                    <a class="btn table_edit_btn" href="edit-post.php?src=draft&&id=<?php echo $row['id'] ?>">Edit</a>
+                                                    <a class="btn table_edit_btn" href="delete.php?src=draft&&id=<?php echo $row['id'] ?>">Delete</a>
+                                                    <a class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
+                                                </div>
                                             <?php } ?>
-
-
-
                                         </td>
                                     </tr>
                                 <?php }
@@ -158,13 +153,18 @@
                                             <div class="text-center"><?php echo $i ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
-                                            <div class="text-center"><?php echo $row['img'] ?></div>
+                                            <div class="text-center">
+                                                <img style="height:50px" src="upload/<?php echo $row['img'] ?>" alt="">
+                                            </div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['title'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['category'] ?></div>
+                                        </td>
+                                        <td class="p-3 border whitespace-nowrap">
+                                            <div class="text-center"><?php echo $row['email'] ?></div>
                                         </td>
                                         <td class="p-3 border whitespace-nowrap">
                                             <div class="text-center"><?php echo $row['author'] ?></div>
@@ -179,23 +179,19 @@
                                         <td class="p-3 border whitespace-nowrap">
                                             <?php if ($admin_info['role'] == 'Moderator') { ?>
                                                 <div class="w-full flex_center gap-1">
-                                                    <a class="btn table_edit_btn send_btn" href="send-mail.php?option=<?php echo $option ?>&&id=<?php echo $row['warranty_id'] ?>">Send</a>
-                                                    <a class="btn table_edit_btn" onclick="alert('Moderator now allowed.')">Edit</a>
-                                                    <a class="btn table_edit_btn" onclick="alert('Moderator now allowed.')">Delete</a>
-                                                    <a class="btn table_edit_btn" href="invoice.php?src=pending&&id=<?php echo $row['warranty_id'] ?>">Invoice</a>
+                                                <div class="w-full flex_center gap-1">                                              
+                                                    <a onclick="alert('Moderator Can not do it!')" class="btn table_edit_btn">Edit</a>
+                                                    <a onclick="alert('Moderator Can not do it!')" class="btn table_edit_btn">Delete</a>
+                                                    <a class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
+                                                </div>
                                                 </div>
                                             <?php } else { ?>
-                                                <div class="w-full flex_center gap-1">
-                                                    <a class="btn table_edit_btn send_btn" href="send-mail.php?option=<?php echo $row['status'] ?>&&id=<?php echo $row['warranty_id'] ?>">Send</a>                                               
-                                                    <a class="btn table_edit_btn" href="warranty-pos.php?status=pending&&id=<?php echo $row['warranty_id'] ?>">Edit</a>
-                                                    <a class="btn table_edit_btn" href="delete.php?src=pending&&id=<?php echo $row['id'] ?>">Delete</a>
-                                                    <a class="btn table_edit_btn" href="invoice.php?src=pending&&id=<?php echo $row['warranty_id'] ?>">View Post</a>
-                                                </div>                                            
-
+                                                <div class="w-full flex_center gap-1">                                              
+                                                    <a class="btn table_edit_btn" href="edit-post.php?src=draft&&id=<?php echo $row['id'] ?>">Edit</a>
+                                                    <a class="btn table_edit_btn" href="delete.php?src=draft&&id=<?php echo $row['id'] ?>">Delete</a>
+                                                    <a class="btn table_edit_btn" href="../single.php?id=<?php echo $row['id'] ?>">View Post</a>
+                                                </div>
                                             <?php } ?>
-
-
-
                                         </td>
                                     </tr>
                                 <?php  } ?>
