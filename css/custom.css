@@ -105,10 +105,6 @@ button {
     font-size: 15px;
 }
 
-.border {
-    /* box-shadow: -6px 7px#ddd; */
-}
-
 .tag>a {
     border: 1px solid #FFCC00;
     padding: 0 5px;
@@ -227,5 +223,6 @@ iframe {
     color: orrange !important;
     padding: 10px !important;
     border-radius: 3px !important;
-    padding-right: 80px !important;
+    padding-left: 45px !important;
+    padding-right: 45px !important;
 }
