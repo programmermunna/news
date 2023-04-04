@@ -1,9 +1,10 @@
 /* ======================Created by Munna========================== */
-.head{
+.head {
     display: flex;
     justify-content: space-between;
 }
-.logo a{
+
+.logo a {
     color: #000;
     font-size: 33px;
     font-family: inherit;
@@ -11,79 +12,90 @@
     text-decoration: none;
 }
 
-.nav{
-    margin-top: 10px;
+.nav {
+    margin-top: 25px;
 }
 
-.nav ul li{
+.nav ul li {
     display: inline-block;
     list-style: none;
     position: relative;
 }
-.nav ul li a{
+
+.nav ul li a {
     color: #000;
     padding: 15px 20px;
     font-weight: 600;
     transition: all .3s;
     text-transform: uppercase;
     text-decoration: none;
-    font-size: 15px;    
+    font-size: 15px;
     /* box-shadow: 0px 1px 1px 1px #ddd; */
 }
-.nav ul li a:hover{
-    color: #FFCC00;
+
+.nav ul li a:hover {
+    color: #fff;
 
 }
-.nav ul ul{    
+
+.nav ul ul {
     position: absolute;
     padding: 0;
     background: #fff;
     display: none;
-    padding-right:20px;
+    padding-right: 20px;
     z-index: 9;
     width: 400px;
 }
-.nav ul ul li{    
+
+.nav ul ul li {
     display: block;
     /* padding: 10px 0; */
-    border-bottom:1px solid #ddd;
-    padding:10px 0;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
 }
-.nav ul li:hover ul{    
+
+.nav ul li:hover ul {
     display: block;
 }
 
 /* -----serach area------ */
 
-.search{
-    padding:0 15px;
+.search {
+    padding: 0 15px;
     width: 100%;
-    width:100%;
+    width: 100%;
     display: inline-block;
     text-align: center;
 }
 
-.search>form>input,button{
-    outline:none;
-    border: 2px solid #dfdfdf;    
+.search>form>input,
+button {
+    outline: none;
+    border: 2px solid #dfdfdf;
 }
-.search>form>input{
-    padding:5px;
-    width:60%;
+
+.search>form>input {
+    padding: 5px;
+    width: 60%;
 }
-.search>form>button{
-    padding:5px 10px;
+
+.search>form>button {
+    padding: 5px 10px;
     width: 30%;
     transition: .5s;
 }
-.search>form>button:hover{
+
+.search>form>button:hover {
     background: #dfdfdf;
 }
-.login{
-    margin-top: 10px;
-    
+
+.login {
+    margin-top: 25px;
+
 }
-.login a{
+
+.login a {
     color: #000;
     padding: 5px 5px;
     font-weight: 600;
@@ -93,21 +105,22 @@
     font-size: 15px;
 }
 
-.border{
+.border {
     /* box-shadow: -6px 7px#ddd; */
 }
-.tag>a{
-    border:1px solid #FFCC00;
-    padding:0 5px;
+
+.tag>a {
+    border: 1px solid #FFCC00;
+    padding: 0 5px;
     color: #FFCC00;
-    margin:5px;
-    
+    margin: 5px;
+
 }
 
 /* -------------my profile-------------- */
 
 
-.my_profile{
+.my_profile {
     background: #fff;
     width: 200px;
     border-radius: 0 0 5px 5px;
@@ -118,23 +131,25 @@
 }
 
 
-.my_profile ul{
+.my_profile ul {
     margin: 0;
     padding: 5px 10px;
 }
 
-.my_profile ul li{
+.my_profile ul li {
     list-style: none;
-    padding:5px 0px;
+    padding: 5px 0px;
 }
-.my_profile ul li:hover{
+
+.my_profile ul li:hover {
     background: #ddd;
 }
 
-.my_profile ul li a{
+.my_profile ul li a {
     font-size: 12px;
 }
-.login:hover .my_profile{
+
+.login:hover .my_profile {
     display: block;
 }
 
@@ -147,54 +162,70 @@
     box-shadow: 1px 1px 1px 1px #dfdfdf;
     outline: none;
     padding: 10px;
-  }
+}
+
 .note_textarea::placeholder {
     color: #d0cfcf;
-  }
+}
 
-  /* ----------login form-------- */
-  .login_form label{
+/* ----------login form-------- */
+.login_form label {
     color: #000;
     font-weight: bolder;
-  }
-  .login_form input::placeholder{
+}
+
+.login_form input::placeholder {
     color: #d0cfcf;
-  }
+}
 
 
-  /* ---------user post ----------- */
-  .user_table{
+/* ---------user post ----------- */
+.user_table {
     width: 100%;
-  }
-  
-  .user_table>thead>tr>th{
-    border:1px solid #ddd;
+}
+
+.user_table>thead>tr>th {
+    border: 1px solid #ddd;
     color: #000;
     padding: 5px 10px;
-  }
-  .user_table>tbody>tr>td{
-    border:1px solid #ddd;
+}
+
+.user_table>tbody>tr>td {
+    border: 1px solid #ddd;
     color: #000;
     padding: 5px 10px;
-  }
+}
 
 
-  /* ----ad system---------- */
-iframe{
-    margin:0 auto;
+/* ----ad system---------- */
+iframe {
+    margin: 0 auto;
 }
 
 
 .slicknav_menu {
-	display:none;
+    display: none;
 }
 
 @media screen and (max-width: 678px) {
-	#menu {
-		display:none;
-	}
-	
-	.slicknav_menu {
-		display:block;
-	}
+    #menu {
+        display: none;
+    }
+
+    .slicknav_menu {
+        display: block;
+    }
+}
+
+.header_container {
+    background: #ffc107;
+    box-shadow: 0px 1px 1px 1px #dfdfdf;
+}
+
+.account_btn {
+    background: #fff !important;
+    color: orrange !important;
+    padding: 10px !important;
+    border-radius: 3px !important;
+    padding-right: 80px !important;
 }

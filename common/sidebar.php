@@ -1,4 +1,4 @@
-<div class="col-lg-4">
+<div class="col-lg-4" id="sidebar">
                     <!-- Social Follow Start -->
                     <div class="mb-3">
                         <div class="section-title mb-0">

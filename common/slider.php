@@ -1,6 +1,5 @@
 <div class="container-fluid pt-5 mb-3">        
-        <div class="container">           
-
+        <div class="container"> 
             <div class="section-title">
                 <h4 class="m-0 text-uppercase font-weight-bold">Popular News</h4>
             </div>

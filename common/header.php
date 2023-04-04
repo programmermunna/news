@@ -48,13 +48,13 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="lib/slicknav/slicknav.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="css/custom.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
     <!-- Header area -->
-    <div class="container-fluid py-4 px-sm-3 px-md-5" style="background: #fff;box-shadow:0px 1px 1px 1px #dfdfdf;">
+    <div class="container-fluid py-4 px-sm-3 px-md-5 header_container">
         <div class="container">
             <div class="head">
                 <div class="logo">
@@ -110,21 +110,20 @@ $setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting WHERE id
                 <div class="login">
                     <?php 
                     if(!isset($_SESSION['user_id'])){ ?>
-                    <a href="login.php">লগিন</a>
-                    <a href="sign-in.php">সাইন আপ</a>
+                    <a class="account_btn" href="login.php">লগিন/সাইন-ইন</a>
                     <?php }else{?>
-                    <a style="background:orange;color:#fff;padding:10px" href="#!">আমার একাউন্ট</a>
+                    <a class="account_btn" href="#!">আমার একাউন্ট</a>
                     <div class="my_profile">
                         <ul>
                             <?php
                             if($admin_info['role'] == 'Normal User'){?>
-                                <li><a href="profile.php">একাউন্ট</a></li>
-                                <li><a href="logout.php">লগআউট</a></li>
+                                <li><a href="profile.php">Profile</a></li>
+                                <li><a href="logout.php">Logout</a></li>
                             <?php }else{ ?>
-                            <li><a href="profile.php">একাউন্ট</a></li>
-                            <li><a href="add-post.php">নতুন পাঠ্য</a></li>
-                            <li><a href="my-post.php">আমার পাঠ্য</a></li>
-                            <li><a href="logout.php">লগআউট</a></li>
+                            <li><a href="profile.php">Profile</a></li>
+                            <li><a href="add-post.php">New Post</a></li>
+                            <li><a href="my-post.php">My Posts</a></li>
+                            <li><a href="logout.php">Logout</a></li>
                             <?php }?>
                         </ul>
                     </div>

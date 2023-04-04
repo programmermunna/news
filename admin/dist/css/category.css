@@ -251,7 +251,7 @@
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
-  padding: 0 10%;
+  /* padding: 0 10%; */
 }
 
 .bg-opacity-50 {
