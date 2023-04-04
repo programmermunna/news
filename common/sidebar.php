@@ -34,6 +34,30 @@
 
                     <!-- Ads End -->
 
+                    <!-- Categories Start -->
+                    <div class="border mb-3">
+                        <div class="section-title mb-0">
+                            <h4 class="m-0 text-uppercase font-weight-bold">Categories</h4>
+                        </div>
+                        <div class="bg-white border border-top-0 p-3">
+                        <div class="d-flex flex-wrap m-n1">
+
+                            <?php
+                            $categories = mysqli_query($conn, "SELECT * FROM category ORDER BY RAND() LIMIT 10");
+                            while($category = mysqli_fetch_assoc($categories)){ 
+                            ?>
+                            <a class="btn btn-sm btn-outline-secondary m-1" href="post-all.php?category=<?php echo $category['name']?>"><?php echo $category['name']?></a>
+                                
+                           <?php }?>
+
+                            </div>
+                        </div>                        
+                    </div>
+                    <!-- Categories End -->
+
+
+
+
                     <!-- Popular News Start -->                    
                     <div class="border mb-3">
                         <div class="section-title mb-0">
@@ -102,8 +126,7 @@
                             }?>
 
                             </div>
-                        </div>
-                        
+                        </div>                        
                     </div>
                     <!-- Tags End -->
                 </div>
