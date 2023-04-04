@@ -27,8 +27,10 @@
         <h4 class="text-xl font-medium">Dashboard</h4>
         <br />
         <div class="home_content">
+
+
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#3B82F6;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -41,13 +43,14 @@
                   <p style="margin: 0 auto;">All Post</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>
           </div>
+          
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#16A34A;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -60,13 +63,13 @@
                   <p style="margin: 0 auto;">Published Post</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>
           </div>
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#EAB308;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -79,13 +82,13 @@
                   <p style="margin: 0 auto;">Draft Post</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>
           </div>
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#EC4899;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -98,13 +101,13 @@
                   <p style="margin: 0 auto;">All Ads</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>
           </div>
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#06B6D4;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -117,13 +120,13 @@
                   <p style="margin: 0 auto;">All Moderator</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>
           </div>
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#F43F5E;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -136,13 +139,13 @@
                   <p style="margin: 0 auto;">All Super User</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>
           </div>
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#F97316;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -155,13 +158,13 @@
                   <p style="margin: 0 auto;">All Normal User</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>
           </div>
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#A855F7;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -174,13 +177,13 @@
                   <p style="margin: 0 auto;">All Newsletter User</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>
           </div>
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#3B82F6;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -193,13 +196,13 @@
                   <p style="margin: 0 auto;">All Categories</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>
           </div>
            <!-- ------box------ -->
-          <div class="home_card">
+          <div class="home_card" style="background:#16A34A;">
             <div>
               <div class="card_top">
                 <div class="card_top_icon from-blue-500 to-blue-600">&#10070</div>
@@ -212,7 +215,7 @@
                   <p style="margin: 0 auto;">All Comments</p>
                 </div>
                 <div class="card_line">
-                  <div style="width: 100%" class="from-blue-500 via-blue-600 to-blue-700"></div>
+                  <div style="width: 100%"></div>
                 </div>
               </div>
             </div>

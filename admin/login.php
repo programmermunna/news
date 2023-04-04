@@ -40,6 +40,8 @@ if(isset($_POST['submit'])){
 }
 
 
+
+$setting = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM setting"));
 ?>
 
 <!DOCTYPE html>
@@ -56,14 +58,13 @@ if(isset($_POST['submit'])){
     <div class="w-11/12 mx-auto sm:w-96 flex_center min-h-screen py-10">
       <div style="width:100%;" class="text-left w-fit h-fit bg-white shadow-lg rounded overflow-hidden"
       >
-      <!-- <?php if(isset($msg)){ ?><div class="alert_success"><?php echo $msg; ?></div><?php }?></h1> -->
         <div
           style="
             background-image: url('https://i.postimg.cc/XJ7NvTb6/istockphoto-1221025677-170667a.jpg');
           "
           class="flex_center p-8 bg-gradient-to-r from-yellow-600 to-red-600 text-white"
         >
-          <h2>News Website</h2>
+          <h2><?php echo $setting['name']?></h2>
         </div>
         <form action="" method = "POST" class="p-6">
           <div class="space-y-5">
@@ -89,15 +90,7 @@ if(isset($_POST['submit'])){
             </div>
             <div class="flex items-baseline justify-between">
               <input type="submit" name="submit"
-                class="btn bg-blue-500 hover:bg-blue-600 focus:bg-blue-400 active:bg-blue-700 text-white px-5 py-2 focus:ring rounded"
-              
-               value="Login"  
-              />
-              <!-- <a
-                href="forgot-password.php"
-                class="text-sm text-blue-600 hover:underline"
-                >Forgot password?</a
-              > -->
+                class="btn bg-blue-500 hover:bg-blue-600 focus:bg-blue-400 active:bg-blue-700 text-white px-5 py-2 focus:ring rounded" value="Login" />
             </div>
           </div>
         </form>

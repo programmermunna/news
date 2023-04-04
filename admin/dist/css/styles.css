@@ -1025,6 +1025,11 @@ h3 {
     0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    opacity: 1;
+}
+
+.home_card:hover {
+    opacity: .8;
 }
 
 @media (min-width: 640px) {
@@ -1078,6 +1083,11 @@ h3 {
     0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
     var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    opacity: .5;
+    transition: .5s;
+}
+.home_card:hover .card_top_icon{
+    opacity: 1;
 }
 
 .card_top_info {

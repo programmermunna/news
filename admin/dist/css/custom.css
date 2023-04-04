@@ -494,3 +494,7 @@ input[type=checkbox] {
 .nav_btn:checked{
   background: red !important;
 }
+
+.card_percentage p{
+  color:#fff !important;
+}

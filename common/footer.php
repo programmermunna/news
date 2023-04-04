@@ -6,8 +6,8 @@
          <div class="col-lg-3 col-md-6 mb-5">
            <h5 class="mb-4 text-white text-uppercase font-weight-bold">Get In Touch</h5>
            <p class="font-weight-medium"><i class="fa fa-map-marker-alt mr-2"></i><?php echo $setting['address']?></p>
-           <p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i><?php echo $setting['phone']?></p>
-           <p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i><?php echo $setting['email']?></p>
+           <a href="tel:<?php echo $setting['phone']?>"></a><p class="font-weight-medium"><i class="fa fa-phone-alt mr-2"></i><?php echo $setting['phone']?></p>
+           <a href="mailto:<?php echo $setting['email']?>"></a><p class="font-weight-medium"><i class="fa fa-envelope mr-2"></i><?php echo $setting['email']?></p>
            <h6 class="mt-4 mb-3 text-white text-uppercase font-weight-bold">Follow Us</h6>
            <div class="d-flex justify-content-start">
             <?php if(!empty($setting['twitter'])){ ?>
