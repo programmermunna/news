@@ -51,17 +51,19 @@ if(isset($_GET['category'])){
                         </div>
 
                         <?php 
-                        while($row = mysqli_fetch_assoc($post_by)){ ?>
+                        while($row = mysqli_fetch_assoc($post_by)){
+                            $title = $row['title'];
+                            $title = str_replace(" ","-",$title);
+                            ?>
                         <div class="col-lg-4 col-md-6 col-sm-12 pb-3">
                             <div class="position-relative">
                                 <img style="height:200px;" class="img-fluid w-100" src="admin/upload/<?php echo $row['img'];?>" style="object-fit: cover;">
                                 <div class="bg-white border border-top-0 p-4">
                                     <div class="mb-2">
                                         <a class="badge badge-primary text-uppercase font-weight-semi-bold p-2 mr-2" href="post-all.php?category=<?php echo $row['category'];?>"><?php echo $row['category'];?></a>
-
                                         <a href="post-all.php?date=<?php echo $row['time']?>"><small class="ml-3"><?php $date = $row['time'];  echo date('d-m-Y', $date); ?></small></a>  
                                     </div>
-                                    <a style="text-decoration: none;" class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="single.php?id=<?php echo $row['id'];?>"><?php $my_string = $row['title'];echo implode(' ', array_slice(explode(' ', $my_string), 0, 6));?></a></p>
+                                    <a style="text-decoration: none;" class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="single.php?<?php echo $title;?>&id=<?php echo $row['id'];?>"><?php $my_string = $row['title'];echo implode(' ', array_slice(explode(' ', $my_string), 0, 6));?></a></p>
 
                                     <p><?php $my_string = $row['summery'];echo implode(' ', array_slice(explode(' ', $my_string), 0, 15));?></p>
                                 </div>

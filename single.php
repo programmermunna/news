@@ -4,14 +4,16 @@
 <?php
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-
-    $post = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM post WHERE id=$id"));
-    $visitors = mysqli_query($conn, "UPDATE post SET visits = visits+1 WHERE id = $id");
 }
+    $post = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM post WHERE id=$id"));
+    $title = $post['title'];
+    $title = str_replace(" ","-",$title);
+    
+    $visitors = mysqli_query($conn, "UPDATE post SET visits = visits+1 WHERE id = $id");
 
     if(mysqli_num_rows(mysqli_query($conn,"SELECT * FROM comment WHERE post_id=$id"))){
     }else{
-        header("location:single-post.php?id=$id");
+        header("location:single-post.php?$title&id=$id");
     }
 ?>
 <!-- Content here -->

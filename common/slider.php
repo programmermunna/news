@@ -7,7 +7,10 @@
             <?php 
             $week = time()-(604800);
             $top_news = mysqli_query($conn,"SELECT * FROM post  WHERE  status='Publish' AND time > ".$week." ORDER BY visits DESC");
-            while($row = mysqli_fetch_assoc($top_news)){?>
+            while($row = mysqli_fetch_assoc($top_news)){
+                $title = $row['title'];
+                $title = str_replace(" ","-",$title);
+                ?>
                 <div class="position-relative overflow-hidden" style="height: 300px;">
                     <img class="img-fluid h-100" src="admin/upload/<?php echo $row['img']?>" style="object-fit: cover;">
                     <div class="overlay">
@@ -16,7 +19,7 @@
                                 href="./single.php"><?php echo $row['category']?></a>
                             <a class="text-white" href="./single.php"><small><?php date('d-m-y', $row['time']);?></small></a>
                         </div>
-                        <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="single.php?id=<?php echo $row['id']?>"><?php echo $row['title']?></a>
+                        <a class="h6 m-0 text-white text-uppercase font-weight-semi-bold" href="single.php?<?php echo $title;?>&id=<?php echo $row['id']?>"><?php echo $row['title']?></a>
                     </div>
                 </div>
 

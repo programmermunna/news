@@ -88,12 +88,12 @@ if (isset($_POST['submit'])) {
 
                         <div>
                             <button name="submit" class="btn btn-primary font-weight-semi-bold px-4"
-                                style="height: 50px;" type="submit">Send Message</button>
+                                style="height: 50px;" type="submit">Create Post</button>
                         </div>
                     </form>
                 </div>
             </div>
-            <?php include("common/mini-sidebar.php") ?>
+            <?php include("common/mini-sidebar.php"); ?>
         </div>
     </div>
 </div>

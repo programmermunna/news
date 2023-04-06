@@ -21,7 +21,10 @@
                         </div>
 
                         <?php $post = mysqli_query($conn,"SELECT * FROM post WHERE status='Publish' ORDER BY id DESC LIMIT 4");
-                        while($row = mysqli_fetch_assoc($post)){ ?>
+                        while($row = mysqli_fetch_assoc($post)){
+                            $title = $row['title'];
+                            $title = str_replace(" ","-",$title);
+                             ?>
 
                         <div class="col-lg-6 col-md-6 col-sm-12 pb-3">
                             <div class="position-relative border">
@@ -32,7 +35,7 @@
 
                                         <a href="post-all.php?date=<?php echo $row['time']?>"><small class="ml-3"><?php $date = $row['time'];  echo date('d-m-Y', $date); ?></small></a>  
                                     </div>
-                                    <a style="text-decoration: none;" class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="single.php?id=<?php echo $row['id'];?>"><?php $my_string = $row['title'];echo implode(' ', array_slice(explode(' ', $my_string), 0, 6));?></a></p>
+                                    <a style="text-decoration: none;" class="h4 d-block mb-3 text-secondary text-uppercase font-weight-bold" href="single.php?<?php echo $title;?>&id=<?php echo $row['id'];?>"><?php $my_string = $row['title'];echo implode(' ', array_slice(explode(' ', $my_string), 0, 6));?></a></p>
 
                                     <p><?php $my_string = $row['summery'];echo implode(' ', array_slice(explode(' ', $my_string), 0, 15));?></p>
                                 </div>
@@ -71,7 +74,10 @@
                         </div>
 
                         <?php $post = mysqli_query($conn,"SELECT * FROM post  WHERE status='Publish' ORDER BY RAND() LIMIT 8");
-                        while($row = mysqli_fetch_assoc($post)){ ?>
+                        while($row = mysqli_fetch_assoc($post)){
+                            $title = $row['title'];
+                            $title = str_replace(" ","-",$title);
+                            ?>
 
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center bg-white mb-3 border" style="height: 110px;">
@@ -86,7 +92,7 @@
                                         <a class="text-body" href="post-all.php?date=<?php echo $row['time']?>"><small><?php echo date('d-m-y', $row['time']);?></small></a>
                                     </div>
                                     <a class="h6 m-0 text-secondary text-uppercase font-weight-bold"
-                                        href="single.php?id=<?php echo $row['id'];?>"><?php echo $row['title']?></a>
+                                        href="single.php?<?php echo $title;?>&id=<?php echo $row['id'];?>"><?php echo $row['title']?></a>
                                 </div>
                             </div>
                         </div>
