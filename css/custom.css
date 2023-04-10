@@ -1,4 +1,9 @@
 /* ======================Created by Munna========================== */
+* {
+    /* font-family: 'AdorshoLipi', Arial, sans-serif !important; */
+    /* font-family: 'Mukti', Arial, sans-serif !important; */
+    font-family: 'Anek Bangla' !important;
+}
 .head {
     display: flex;
     justify-content: space-between;
