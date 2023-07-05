@@ -1,7 +1,7 @@
 <!-- Header -->
 <?php include("common/header.php");?>
 <!-- Header -->
-
+     
 <!-- Content here -->
     <!-- News With Sidebar Start -->
     <div class="container-fluid">
